@@ -1,12 +1,20 @@
 import { Quote } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import brandPattern from "@/assets/js-brand-pattern.svg";
 
 const TestimonialSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="section-padding section-alt">
-      <div ref={ref} className="content-width text-center">
+    <section className="section-padding section-alt relative overflow-hidden">
+      {/* Background pattern */}
+      <img 
+        src={brandPattern} 
+        alt="" 
+        className="absolute -left-24 top-1/2 -translate-y-1/2 w-[350px] h-auto opacity-[0.04] pointer-events-none select-none"
+        aria-hidden="true"
+      />
+      <div ref={ref} className="content-width text-center relative z-10">
         <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-14`}>
           Čo hovoria naši <span className="text-primary">klienti</span>?
         </h2>

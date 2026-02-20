@@ -1,10 +1,18 @@
 import { Instagram, Youtube, Linkedin, Music } from "lucide-react";
 import logoWhite from "@/assets/js-investor-logo-biele.png";
+import brandPattern from "@/assets/js-brand-pattern.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground section-padding pb-10">
-      <div className="content-width">
+    <footer className="bg-primary text-primary-foreground section-padding pb-10 relative overflow-hidden">
+      {/* Background pattern */}
+      <img 
+        src={brandPattern} 
+        alt="" 
+        className="absolute -left-20 -bottom-20 w-[400px] h-auto opacity-[0.08] pointer-events-none select-none brightness-200"
+        aria-hidden="true"
+      />
+      <div className="content-width relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-14">
           <div>
             <img src={logoWhite} alt="JS Investor" className="h-12 mb-4" />

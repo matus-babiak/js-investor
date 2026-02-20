@@ -57,7 +57,7 @@ const MechanismSection = () => {
               className="card-hover bg-card rounded-2xl p-8 flex gap-5"
             >
               <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center">
+                <div className="w-14 h-14 icon-pattern-bg flex items-center justify-center">
                   <p.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
               </div>

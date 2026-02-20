@@ -269,3 +269,23 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 20px -4px rgba(41, 97, 74, 0.4);
 }
+
+/* Brand pattern mask for images */
+.brand-pattern-mask {
+  -webkit-mask-image: url('./assets/js-brand-pattern.svg');
+  mask-image: url('./assets/js-brand-pattern.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Brand pattern icon background */
+.icon-pattern-bg {
+  background-image: url('./assets/js-brand-pattern.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

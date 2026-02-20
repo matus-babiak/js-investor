@@ -1,9 +1,10 @@
 import heroImage from "@/assets/hero-wealth.jpg";
+import brandPattern from "@/assets/js-brand-pattern.svg";
 
 const HeroSection = () => {
   return (
-    <section className="section-padding min-h-[90vh] flex items-center">
-      <div className="max-w-[1100px] mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <section className="section-padding min-h-[90vh] flex items-center relative overflow-hidden">
+      <div className="max-w-[1100px] mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
         {/* Text */}
         <div>
           <p className="hero-animate hero-animate-delay-1 text-sm font-sans font-semibold tracking-widest uppercase text-primary mb-6">
@@ -27,18 +28,22 @@ const HeroSection = () => {
           </a>
         </div>
 
-        {/* Image */}
+        {/* Image with brand pattern mask */}
         <div className="hero-animate hero-animate-delay-3 relative">
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
+          <div className="brand-pattern-mask shadow-2xl">
             <img
               src={heroImage}
               alt="Budovanie majetku – finančný rast a investície"
               className="w-full h-auto object-cover aspect-square"
             />
           </div>
-          {/* Decorative accent */}
-          <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
-          <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/5 rounded-xl -z-10" />
+          {/* Decorative pattern behind */}
+          <img 
+            src={brandPattern} 
+            alt="" 
+            className="absolute -bottom-6 -left-6 w-[110%] h-auto opacity-[0.08] pointer-events-none select-none -z-10"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </section>
