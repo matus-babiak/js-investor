@@ -7,7 +7,7 @@ const HeroSection = () => {
         {/* Text */}
         <div>
           <p className="text-sm font-sans font-semibold tracking-widest uppercase text-primary mb-6">
-            JS Investor · Finančné poradenstvo
+          Majetkové poradenstvo
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-[52px] font-serif font-bold leading-tight text-foreground mb-6">
             Zarábate nadštandardne, ale váš majetok tomu{" "}
