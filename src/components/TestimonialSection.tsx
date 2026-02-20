@@ -15,27 +15,27 @@ const TestimonialSection = () => {
         aria-hidden="true"
       />
       <div ref={ref} className="content-width text-center relative z-10">
-        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-14`}>
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-14`}>
           Čo hovoria naši <span className="text-primary">klienti</span>?
         </h2>
 
-        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} card-hover bg-card-alt rounded-3xl p-10 md:p-14 shadow-sm max-w-[720px] mx-auto relative`}>
-          <Quote className="w-10 h-10 text-primary/20 absolute top-8 left-8" />
-          <blockquote className="text-lg md:text-xl text-foreground leading-relaxed italic mb-8 relative z-10">
+        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} card-hover bg-card-alt rounded-3xl p-10 md:p-16 shadow-sm max-w-[800px] mx-auto relative`}>
+          <Quote className="w-12 h-12 text-primary/20 absolute top-8 left-8" />
+          <blockquote className="text-xl md:text-2xl text-foreground  italic mb-8 relative z-10">
             „Ivan mi doslova vyriešil chaos vo financiách. Konečne mi niekto nevysvetľoval len to,
             aké ETF si mám kúpiť, ale ukázal mi presné kalkulácie, ako zapojiť do hry investičný
             byt a ako z toho celého o 15 rokov čerpať rentu. To mi XTB ani banka nikdy nedali."
           </blockquote>
           <div>
-            <p className="font-serif font-semibold text-foreground text-lg">Tomáš</p>
-            <p className="text-muted-foreground">IT Manažér</p>
+            <p className="font-serif font-semibold text-foreground text-xl">Tomáš</p>
+            <p className="text-lg text-muted-foreground">IT Manažér</p>
           </div>
         </div>
 
         <div className="mt-12">
           <a
             href="#kontakt"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-12 py-5 rounded-full shadow-lg"
           >
             Chcem podobné výsledky
           </a>

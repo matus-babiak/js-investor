@@ -25,11 +25,11 @@ const ProblemSection = () => {
   return (
     <section className="section-padding section-alt">
       <div ref={ref} className="content-width">
-        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-4 text-center`}>
-          Ste úspešný v kariére, ale{" "}
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-6 text-center`}>
+          Ste úspešný vo svojej kariére, ale{" "}
           <span className="text-primary">vo financiách máte chaos?</span>
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground text-center max-w-[650px] mx-auto mb-14 leading-relaxed`}>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[700px] mx-auto mb-14 `}>
           Väčšina úspešných profesionálov, lekárov, manažérov či IT špecialistov robí s peniazmi
           tú istú chybu. Spoznávate sa v niektorom z týchto bodov?
         </p>
@@ -43,8 +43,8 @@ const ProblemSection = () => {
               <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                 <p.icon className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{p.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{p.text}</p>
+              <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">{p.title}</h3>
+              <p className="text-lg text-muted-foreground ">{p.text}</p>
             </div>
           ))}
         </div>

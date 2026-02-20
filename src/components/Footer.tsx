@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-14">
           <div>
             <img src={logoWhite} alt="JS Investor" className="h-12 mb-4" />
-            <p className="text-primary-foreground/70 leading-relaxed text-sm">
+            <p className="text-primary-foreground/70  text-base">
               Komplexné finančné poradenstvo pre náročných klientov. Registrovaní v NBS pod číslom{" "}
               <strong className="text-primary-foreground">282999</strong>.
             </p>
@@ -26,7 +26,7 @@ const Footer = () => {
             <h4 className="font-sans font-semibold text-sm uppercase tracking-widest mb-4 text-primary-foreground/80">
               Kontakt
             </h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
+            <ul className="space-y-2 text-base text-primary-foreground/70">
               <li>
                 <a href="tel:+421902519328" className="hover:text-primary-foreground transition-colors">
                   +421 902 519 328
@@ -45,7 +45,7 @@ const Footer = () => {
             <h4 className="font-sans font-semibold text-sm uppercase tracking-widest mb-4 text-primary-foreground/80">
               Firemné údaje
             </h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
+            <ul className="space-y-2 text-base text-primary-foreground/70">
               <li>Jashik s.r.o.</li>
               <li>IČO: 54253969</li>
               <li>DIČ: 2121623086</li>
@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground/20 pt-8 gap-6">
-          <p className="text-xs text-primary-foreground/50">
+          <p className="text-sm text-primary-foreground/50">
             © {new Date().getFullYear()} Jashik s.r.o. Všetky práva vyhradené.
           </p>
           <div className="flex gap-4">

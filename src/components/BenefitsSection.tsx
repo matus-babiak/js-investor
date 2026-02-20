@@ -25,7 +25,7 @@ const BenefitsSection = () => {
   return (
     <section className="section-padding section-alt">
       <div ref={ref} className="content-width">
-        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-14 text-center`}>
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-14 text-center`}>
           Čo získate vďaka <span className="text-primary">JS Wealth System™</span>?
         </h2>
 
@@ -39,10 +39,10 @@ const BenefitsSection = () => {
                 <b.icon className="w-7 h-7 text-primary" />
               </div>
               <div>
-                <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
+                <h3 className="font-serif text-[26px] font-semibold text-foreground mb-3">
                   {b.title}
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">{b.text}</p>
+                <p className="text-xl text-muted-foreground ">{b.text}</p>
               </div>
             </div>
           ))}

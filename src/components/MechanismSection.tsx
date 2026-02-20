@@ -6,25 +6,29 @@ const pillars = [
     icon: BarChart3,
     num: "01",
     title: "Inteligentné ETF stratégie",
-    text: "Žiadne špekulácie. Vaše portfólio postavíme na nízkonákladových globálnych fondoch so stabilným rastom.",
+    lead: "Väčšina investorov nakupuje fondy chaoticky a pri prvom poklese trhu v panike predáva.",
+    text: "Vaše portfólio postavíme na nízkonákladových globálnych fondoch. Dostanete od nás nielen prístup k nástrojom, ale presný strategický plán rebalansovania, ktorý vás ochráni pred emočnými chybami v čase krízy. Všetko sledujete prehľadne cez našu aplikáciu UFO.",
   },
   {
     icon: Building2,
     num: "02",
     title: "Investičné nehnuteľnosti",
-    text: "Akcie sú motor rastu, tehla prináša stabilitu. Spočítame vám presné ROI a využijeme bankové peniaze vo váš prospech.",
+    lead: "Kúpiť byt \"podľa dojmu alebo pocitu\" vás môže stáť desaťtisíce eur na zlých úrokoch a skrytých poplatkoch.",
+    text: "Využijeme váš vysoký príjem ako páku. Vďaka našim unikátnym investičným kalkulačkám vám vopred do eura presne vypočítame vaše ROI, cashflow, a ukážeme vám, v ktorom roku sa vám nehnuteľnosť preklopí do čistého zisku. Toto vám žiadna aplikácia nedá.",
   },
   {
     icon: Calculator,
     num: "03",
     title: "Daňová optimalizácia",
-    text: "Hrubý výnos je len polovičný úspech. Portfólio štruktúrujeme tak, aby ste štátu legálne nenechávali viac, ako je nutné.",
+    lead: "Je zbytočné zarobiť na trhu 10 %, ak štátu odovzdáte 30 % na daniach z nevedomosti.",
+    text: "Hrubý výnos je len polovičný úspech. Portfólio štruktúrujeme tak, aby bolo vaše bohatstvo chránené a aby ste štátu legálne nenechávali viac, ako je absolútne nutné.",
   },
   {
     icon: Wallet,
     num: "04",
     title: "Renta a pravidelný príjem",
-    text: "Náš ultimátny cieľ. V správny čas prestavíme aktíva tak, aby generovali stabilný pasívny príjem a kúpili vám časovú slobodu.",
+    lead: "Náš ultimátny cieľ.",
+    text: "V správny čas prestavíme aktíva tak, aby generovali stabilný pasívny príjem a kúpili vám časovú slobodu.",
   },
 ];
 
@@ -34,16 +38,16 @@ const MechanismSection = () => {
   return (
     <section className="section-padding">
       <div ref={ref} className="content-width">
-        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-4 text-center`}>
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-6 text-center`}>
           Aplikácie vám dajú nástroje.
           <br />
           My vám dáme <span className="text-primary">štruktúru a jasný plán</span>.
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-6 leading-relaxed`}>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-6 `}>
           Investovať cez XTB alebo Finax je ako kúpiť si permanentku do fitka. Nástroje máte k
           dispozícii, ale cvičiť musíte sami.
         </p>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-14 leading-relaxed`}>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14 `}>
           V JS Investor fungujeme ako váš{" "}
           <strong className="text-foreground">osobný finančný tréner</strong>. Navrhneme pre vás{" "}
           <strong className="text-primary">JS Wealth System™</strong> – 4-pilierový systém, vďaka
@@ -54,22 +58,19 @@ const MechanismSection = () => {
           {pillars.map((p, i) => (
             <div
               key={p.num}
-              className="card-hover bg-card rounded-2xl p-8 flex gap-5"
+              className="card-hover bg-card rounded-2xl p-8"
             >
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 icon-pattern-bg flex items-center justify-center">
-                  <p.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
+              <div className="w-16 h-16 icon-pattern-bg flex items-center justify-center mb-4">
+                <p.icon className="w-8 h-8 text-primary-foreground" />
               </div>
-              <div>
-                <span className="text-xs font-sans font-bold tracking-widest text-primary uppercase mb-1 block">
-                  Pilier {p.num}
-                </span>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                  {p.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">{p.text}</p>
-              </div>
+              <span className="text-sm font-sans font-bold tracking-widest text-primary uppercase mb-1 block">
+                Pilier {p.num}
+              </span>
+              <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
+                {p.title}
+              </h3>
+              <p className="text-lg text-foreground font-medium mb-2 ">{p.lead}</p>
+              <p className="text-lg text-muted-foreground ">{p.text}</p>
             </div>
           ))}
         </div>
@@ -77,7 +78,7 @@ const MechanismSection = () => {
         <div className="text-center mt-12">
           <a
             href="#kontakt"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-12 py-5 rounded-full shadow-lg"
           >
             Rezervovať konzultáciu
           </a>
