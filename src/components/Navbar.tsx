@@ -18,7 +18,7 @@ const Navbar = () => {
           </a>
           <a
             href="#kontakt"
-            className="bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            className="btn-primary bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full"
           >
             Konzultácia
           </a>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <a
             href="#kontakt"
             onClick={() => setOpen(false)}
-            className="block bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full text-center"
+            className="btn-primary block bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full text-center"
           >
             Konzultácia
           </a>

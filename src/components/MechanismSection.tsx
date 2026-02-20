@@ -1,4 +1,5 @@
 import { BarChart3, Building2, Calculator, Wallet } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const pillars = [
   {
@@ -28,30 +29,32 @@ const pillars = [
 ];
 
 const MechanismSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section className="section-padding">
-      <div className="content-width">
-        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-4 text-center">
+      <div ref={ref} className="content-width">
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-4 text-center`}>
           Aplikácie vám dajú nástroje.
           <br />
           My vám dáme <span className="text-primary">štruktúru a jasný plán</span>.
         </h2>
-        <p className="text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-6 leading-relaxed">
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-6 leading-relaxed`}>
           Investovať cez XTB alebo Finax je ako kúpiť si permanentku do fitka. Nástroje máte k
           dispozícii, ale cvičiť musíte sami.
         </p>
-        <p className="text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-14 leading-relaxed">
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground text-center max-w-[680px] mx-auto mb-14 leading-relaxed`}>
           V JS Investor fungujeme ako váš{" "}
           <strong className="text-foreground">osobný finančný tréner</strong>. Navrhneme pre vás{" "}
           <strong className="text-primary">JS Wealth System™</strong> – 4-pilierový systém, vďaka
           ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {pillars.map((p) => (
+        <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} grid md:grid-cols-2 gap-6`}>
+          {pillars.map((p, i) => (
             <div
               key={p.num}
-              className="bg-card rounded-2xl p-8 border border-border/50 flex gap-5"
+              className="card-hover bg-card rounded-2xl p-8 flex gap-5"
             >
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center">
@@ -74,7 +77,7 @@ const MechanismSection = () => {
         <div className="text-center mt-12">
           <a
             href="#kontakt"
-            className="inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-10 py-4 rounded-full hover:opacity-90 transition-opacity shadow-lg"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg"
           >
             Rezervovať konzultáciu
           </a>

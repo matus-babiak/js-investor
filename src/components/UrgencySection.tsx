@@ -1,26 +1,30 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 const UrgencySection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section id="kontakt" className="section-padding">
-      <div className="content-width text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-6">
+      <div ref={ref} className="content-width text-center">
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-6`}>
           Získajte svoj systém pre budovanie majetku{" "}
           <span className="text-primary">ešte dnes</span>.
         </h2>
-        <p className="text-lg text-muted-foreground max-w-[640px] mx-auto mb-4 leading-relaxed">
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground max-w-[640px] mx-auto mb-4 leading-relaxed`}>
           Aby sme zachovali najvyšší štandard a osobný prístup našej investičnej kancelárie,{" "}
           <strong className="text-foreground">
             mesačne prijímame len 5 nových klientov
           </strong>{" "}
           na vypracovanie JS Wealth System™.
         </p>
-        <p className="text-lg text-muted-foreground max-w-[640px] mx-auto mb-10 leading-relaxed">
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-lg text-muted-foreground max-w-[640px] mx-auto mb-10 leading-relaxed`}>
           Nenechávajte svoje peniaze napospas inflácii a chaosu. Rezervujte si s nami krátky
           úvodný hovor, kde zistíme, či vám vieme pomôcť.
         </p>
 
         <a
           href="#kontakt"
-          className="inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-12 py-5 rounded-full hover:opacity-90 transition-opacity shadow-xl"
+          className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-lg px-12 py-5 rounded-full shadow-xl`}
         >
           Rezervovať konzultáciu
         </a>

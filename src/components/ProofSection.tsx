@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const forWhom = [
   "Pre ľudí s príjmom nad 1 500 € / mesačne, ktorí dokážu tvoriť kapitál.",
@@ -13,14 +14,16 @@ const notFor = [
 ];
 
 const ProofSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section className="section-padding">
-      <div className="content-width text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-6">
+      <div ref={ref} className="content-width text-center">
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-6`}>
           Čísla hovoria <span className="text-primary">za nás</span>.
         </h2>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-10 md:gap-16 mb-6">
+        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} flex flex-col sm:flex-row justify-center gap-10 md:gap-16 mb-6`}>
           <div>
             <span className="block text-5xl md:text-6xl font-serif font-bold text-primary">
               3 000 000 €
@@ -37,7 +40,7 @@ const ProofSection = () => {
         <p className="text-muted-foreground mb-16">Pod prísnym dohľadom NBS</p>
 
         <div className="grid md:grid-cols-2 gap-8 text-left">
-          <div className="bg-card rounded-2xl p-8 border border-border/50">
+          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} card-hover bg-card rounded-2xl p-8`}>
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
               Pre koho je JS Wealth System™ ideálny?
             </h3>
@@ -53,7 +56,7 @@ const ProofSection = () => {
             </ul>
           </div>
 
-          <div className="bg-card rounded-2xl p-8 border border-border/50">
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? 'visible' : ''} card-hover-accent bg-card rounded-2xl p-8`}>
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
               Pre koho služba určená nie je?
             </h3>

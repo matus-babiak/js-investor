@@ -1,4 +1,5 @@
 import { ShieldCheck, TrendingUp, Brain } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const benefits = [
   {
@@ -19,10 +20,12 @@ const benefits = [
 ];
 
 const BenefitsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section className="section-padding section-alt">
-      <div className="content-width">
-        <h2 className="text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-14 text-center">
+      <div ref={ref} className="content-width">
+        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground leading-tight mb-14 text-center`}>
           Čo získate vďaka <span className="text-primary">JS Wealth System™</span>?
         </h2>
 
@@ -30,10 +33,10 @@ const BenefitsSection = () => {
           {benefits.map((b, i) => (
             <div
               key={b.title}
-              className="bg-card-alt rounded-2xl p-8 md:p-10 shadow-sm border border-border/50 flex flex-col md:flex-row items-start gap-6"
+              className={`scroll-animate scroll-animate-delay-${i + 1} ${isVisible ? 'visible' : ''} card-hover bg-card-alt rounded-2xl p-8 md:p-10 shadow-sm flex flex-col md:flex-row items-start gap-6`}
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                <b.icon className="w-7 h-7 text-accent" />
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <b.icon className="w-7 h-7 text-primary" />
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">

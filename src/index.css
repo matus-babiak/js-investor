@@ -168,3 +168,104 @@
     background-color: hsl(var(--card-alt));
   }
 }
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-delay-1 { transition-delay: 0.15s; }
+.scroll-animate-delay-2 { transition-delay: 0.3s; }
+.scroll-animate-delay-3 { transition-delay: 0.45s; }
+.scroll-animate-delay-4 { transition-delay: 0.6s; }
+
+/* Hero fade-in on load */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: heroFadeIn 0.6s ease-out forwards;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.hero-animate-delay-2 { animation-delay: 0.25s; opacity: 0; }
+.hero-animate-delay-3 { animation-delay: 0.4s; opacity: 0; }
+.hero-animate-delay-4 { animation-delay: 0.55s; opacity: 0; }
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-hover:hover {
+  border-color: hsl(var(--primary));
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(41, 97, 74, 0.15);
+}
+
+.card-hover-accent {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-hover-accent:hover {
+  border-color: hsl(var(--accent));
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(194, 80, 62, 0.2);
+}
+
+/* Button effects */
+@keyframes btnShine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: btnShine 4s ease-in-out infinite;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(41, 97, 74, 0.4);
+}
