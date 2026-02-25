@@ -5,7 +5,7 @@ const problems = [
   {
     icon: TrendingDown,
     title: 'Investujete „naslepo"',
-    text: "Máte účet na XTB alebo Finaxe, kupujete ETF fondy, ale chýba vám ucelená stratégia a neviete, či to robíte správne.",
+    text: "Máte účet na investičnej platforme alebo v aplikácii, kupujete ETF fondy, ale chýba vám ucelená stratégia a neviete, či to robíte správne.",
   },
   {
     icon: AlertTriangle,

@@ -27,8 +27,8 @@ const pillars = [
     icon: Wallet,
     num: "04",
     title: "Renta a pravidelný príjem",
-    lead: "Náš ultimátny cieľ.",
-    text: "V správny čas prestavíme aktíva tak, aby generovali stabilný pasívny príjem a kúpili vám časovú slobodu.",
+    lead: "Veľa ľudí si buduje portfólio, ale nemajú plán, ako z neho v budúcnosti peniaze čerpať. Ak začnete svoje aktíva na dôchodku vyberať náhodne alebo v čase krízy, hrozí vám, že o svoje peniaze prídete oveľa rýchlejšie, než ste plánovali.",
+    text: "V správny čas prestavíme vaše aktíva tak, aby generovali stabilný pasívny príjem (rentu/dividendy) a kúpili vám skutočnú časovú slobodu.",
   },
 ];
 
@@ -39,19 +39,16 @@ const MechanismSection = () => {
     <section className="section-padding">
       <div ref={ref} className="content-width">
         <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-6 text-center`}>
-          Aplikácie vám dajú nástroje.
-          <br />
-          My vám dáme <span className="text-primary">štruktúru a jasný plán</span>.
+          Samostatné investičné účty vám rentu nevybudujú. Potrebujete{" "}
+          <span className="text-primary">ucelený systém</span>.
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-6 `}>
-          Investovať cez XTB alebo Finax je ako kúpiť si permanentku do fitka. Nástroje máte k
-          dispozícii, ale cvičiť musíte sami.
+          Investovať cez bežné aplikácie bez ucelenej stratégie je ako stavať dom bez nákresu. Materiál, ako napr. ETF fondy, máte síce k dispozícii, no ak ho poskladáte náhodne, výsledok bude nestabilný.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14 `}>
           V JS Investor fungujeme ako váš{" "}
-          <strong className="text-foreground">osobný finančný tréner</strong>. Navrhneme pre vás{" "}
-          <strong className="text-primary">JS Wealth System™</strong> – 4-pilierový systém, vďaka
-          ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
+          <strong className="text-foreground">hlavný finančný architekt</strong>. Nenecháme vás robiť pokusy a omyly. Navrhneme pre vás{" "}
+          <strong className="text-primary">JS Wealth System™</strong>. 4-pilierový systém, vďaka ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
         </p>
 
         <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} grid md:grid-cols-2 gap-6`}>
@@ -80,7 +77,7 @@ const MechanismSection = () => {
             href="#kontakt"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-12 py-5 rounded-full shadow-lg"
           >
-            Rezervovať konzultáciu
+            Chcem JS Wealth System™
           </a>
         </div>
       </div>

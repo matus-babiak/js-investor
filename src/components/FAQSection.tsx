@@ -4,11 +4,11 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const faqs = [
   {
-    question: "Prečo mi nestačí investovať cez Finax alebo Portu?",
+    question: "Prečo mi nestačí investovať cez investičnú aplikáciu?",
     answer: "Aplikácie sú skvelé nástroje pre základné sporenie. Avšak nedokážu analyzovať vašu úverovú bonitu, neporadia vám, či sa vám oplatí zobrať hypotéku na investičný byt, a nevyriešia vaše dane. My sme architektúrou vášho celého majetku, nielen jedného účtu.",
   },
   {
-    question: "Prečo si nespravovať XTB účet sám?",
+    question: "Prečo si nespravovať investičný účet sám?",
     answer: "Štatistiky ukazujú, že až 75 % ľudí pri samostatnom obchodovaní prichádza o peniaze. Náš systém vás chráni pred najväčším rizikom na trhu – pred vašimi vlastnými emóciami a zlými rozhodnutiami.",
   },
 ];

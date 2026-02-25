@@ -15,16 +15,14 @@ const HeroSection = () => {
             <span className="text-primary">nezodpovedá?</span>
           </h1>
           <p className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground  mb-10">
-            Prestaňte investovať náhodne. Získajte{" "}
-            <strong className="text-foreground">systém pre budovanie majetku</strong>. Komplexný
-            systém na mieru pre ľudí s príjmom od 1 500 €, ktorý premení váš vysoký plat na
-            skutočný majetok.
+            Prestaňte investovať náhodne. Nechajte si navrhnúť{" "}
+            <strong className="text-foreground">JS Wealth System™</strong>, komplexný plán budovania majetku na mieru pre ľudí s príjmom od 1 500 €, ktorý premení váš vysoký plat na skutočnú rentu.
           </p>
           <a
             href="#kontakt"
             className="hero-animate hero-animate-delay-4 btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-12 py-5 rounded-full shadow-lg"
           >
-            Získať systém pre svoj majetok
+            Získať môj plán
           </a>
         </div>
 

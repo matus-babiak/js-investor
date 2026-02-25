@@ -4,18 +4,27 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const benefits = [
   {
     icon: ShieldCheck,
-    title: "Poriadok a kľudný spánok",
-    text: "Už žiadne náhodné nakupovanie akcií. Získate jasný a exaktný plán, kam smeruje každé vaše euro.",
+    title: "Poriadok a ušetrený čas",
+    text: (
+      <>
+        Už žiadne náhodné nakupovanie akcií a sledovanie grafov. Získate exaktný plán a{" "}
+        <strong className="text-foreground">ušetríte desiatky hodín mesačne</strong>, ktoré môžete venovať kariére alebo rodine.
+      </>
+    ),
   },
   {
     icon: TrendingUp,
     title: "Maximum z vašej bonity",
-    text: "Váš vysoký príjem je vašou najväčšou pákou. Presnými kalkuláciami vám ukážeme, kedy a ako kúpiť investičný byt tak, aby sa splácal sám.",
+    text: "Váš vysoký príjem je vašou najväčšou pákou. Spočítame vám presné výnosy (ROI) a ukážeme, ako nehnuteľnosti prinútite splácať sa samé.",
   },
   {
     icon: Brain,
-    title: "Koniec strachu z trhových poklesov",
-    text: "Keď trhy klesnú, nespanikárite. Sme tu na to, aby sme vaše portfólio strážili a robili racionálne rozhodnutia za vás.",
+    title: "Koniec strachu z poklesov",
+    text: (
+      <>
+        Získate <strong className="text-foreground">100 % racionálneho partnera</strong>. Keď trhy klesnú, nespanikárite. Sme tu na to, aby sme vaše portfólio strážili a pomáhali vám robiť správne rozhodnutia.
+      </>
+    ),
   },
 ];
 

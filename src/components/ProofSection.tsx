@@ -3,13 +3,13 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const forWhom = [
   "Pre ľudí s príjmom nad 1 500 € / mesačne, ktorí dokážu tvoriť kapitál.",
-  "Pre zaneprázdnených profesionálov, ktorí chcú delegovať starostlivosť o peniaze na experta.",
-  "Pre tých, ktorí chcú dlhodobého a stabilného partnera.",
+  "Pre zaneprázdnených profesionálov, ktorí chcú delegovať exekutívu na experta.",
+  "Pre tých, ktorí hľadajú dlhodobého a stabilného partnera.",
 ];
 
 const notFor = [
-  'Pre tých, ktorí hľadajú rýchle zbohatnutie a „hot tipy" na kryptomeny.',
-  "Pre ľudí, ktorí si chcú všetko klikať a spravovať výhradne sami (pre vás sú tu aplikácie).",
+  "Pre tých, ktorí hľadajú rýchle zbohatnutie, trading a špekulácie s kryptomenami.",
+  "Pre ľudí, ktorí si chcú všetko klikať a spravovať výhradne sami.",
   "Pre tých, ktorí zatiaľ nevedia investovať viac ako 50 € mesačne.",
 ];
 
@@ -23,21 +23,32 @@ const ProofSection = () => {
           Čísla hovoria <span className="text-primary">za nás</span>.
         </h2>
 
-        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} flex flex-col sm:flex-row justify-center gap-10 md:gap-16 mb-6`}>
-          <div>
-            <span className="block text-6xl md:text-7xl font-serif font-bold text-primary">
+        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} flex flex-col sm:flex-row justify-center items-center gap-12 md:gap-16 lg:gap-20 mb-16`}>
+          <div className="text-center">
+            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
               3 000 000 €
-            </span>
-            <span className="text-lg text-muted-foreground mt-2 block">spravovaný majetok</span>
+            </p>
+            <p className="text-base sm:text-lg text-muted-foreground mt-2">
+              spravovaný majetok
+            </p>
           </div>
-          <div>
-            <span className="block text-6xl md:text-7xl font-serif font-bold text-primary">
+          <div className="text-center">
+            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
               300+
-            </span>
-            <span className="text-lg text-muted-foreground mt-2 block">spokojných klientov</span>
+            </p>
+            <p className="text-base sm:text-lg text-muted-foreground mt-2">
+              spokojných klientov
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
+              7+
+            </p>
+            <p className="text-base sm:text-lg text-muted-foreground mt-2 max-w-[200px] mx-auto">
+              rokov skúseností práce (Pod dohľadom NBS)
+            </p>
           </div>
         </div>
-        <p className="text-lg text-muted-foreground mb-16">Pod prísnym dohľadom NBS</p>
 
         <div className="grid md:grid-cols-2 gap-8 text-left">
           <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} card-hover bg-card rounded-2xl p-10`}>
@@ -54,11 +65,19 @@ const ProofSection = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-8">
+              <a
+                href="#kontakt"
+                className="inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3 rounded-full shadow-md hover:bg-primary/90 transition-colors"
+              >
+                Chcem JS Wealth System™
+              </a>
+            </div>
           </div>
 
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? 'visible' : ''} card-hover-accent bg-card rounded-2xl p-10`}>
             <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">
-              Pre koho služba určená nie je?
+              Pre koho naša služba NIE JE určená?
             </h3>
             <ul className="space-y-4">
               {notFor.map((item) => (
@@ -70,6 +89,14 @@ const ProofSection = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-8">
+              <a
+                href="#kontakt"
+                className="inline-block bg-accent text-accent-foreground font-sans font-semibold text-base px-8 py-3 rounded-full shadow-md hover:bg-accent/90 transition-colors"
+              >
+                Začať so vzdelávaním
+              </a>
+            </div>
           </div>
         </div>
       </div>
