@@ -64,10 +64,10 @@ const MechanismSection = () => {
           Keď firma potrebuje rásť a optimalizovať dane, najme si finančného riaditeľa. Ak riešite zložitý právny spor, platíte si špičkového advokáta.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
-          K <strong className="text-foreground">budovaniu vášho celoživotného majetku</strong> by ste mali pristupovať rovnako. Investovať cez bežné aplikácie je ako sadnúť si za volant bez navigácie. Cesta je len na vás a pri prvej kríze riskujete fatálnu chybu, na ktorú ste úplne sami. ETF fondy, sporiace účty a investičné aplikácie. <strong className="text-foreground">To sú len nástroje, nie stratégia.</strong>
+          K <strong className="text-foreground">budovaniu vášho celoživotného majetku</strong> by ste mali pristupovať rovnako. Investovať bez jasného plánu a stratégie je ako sadnúť si za volant bez navigácie. Cesta je len na vás a pri prvej kríze riskujete fatálnu chybu, na ktorú ste úplne sami.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
-          V JS Investor fungujeme ako váš <strong className="text-foreground">osobný finančný riaditeľ a architekt</strong>. Nenechávame vás „šoférovať" samých. Nenavrhujeme len fondy. Vytvárame pre vás jasnú, ucelenú stratégiu, ktorá vám dá absolútnu istotu, chráni váš kapitál a rastie spolu s vami.
+          V JS Investor fungujeme ako váš <strong className="text-foreground">osobný finančný riaditeľ a architekt</strong>. Nenechávame vás „šoférovať" samých. Nenavrhujeme len fondy. <strong className="text-foreground">Vytvárame pre vás jasnú, ucelenú stratégiu,</strong> ktorá vám dá absolútnu istotu, chráni váš kapitál a rastie spolu s vami.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl md:text-2xl text-foreground font-medium text-center max-w-[720px] mx-auto mt-12 mb-14`}>
           Spoznajte náš 4-pilierový <strong className="text-primary">JS Wealth System™</strong>, vďaka ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
