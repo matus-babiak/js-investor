@@ -75,7 +75,7 @@ const MechanismSection = () => {
         <div className="text-center mt-12">
           <a
             href="#kontakt"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-12 py-5 rounded-full shadow-lg"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
             Chcem JS Wealth System™
           </a>

@@ -1,21 +1,33 @@
-import { TrendingDown, AlertTriangle, Clock } from "lucide-react";
+import { Landmark, Puzzle, Briefcase } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const problems = [
   {
-    icon: TrendingDown,
-    title: 'Investujete „naslepo"',
-    text: "Máte účet na investičnej platforme alebo v aplikácii, kupujete ETF fondy, ale chýba vám ucelená stratégia a neviete, či to robíte správne.",
+    icon: Landmark,
+    title: "Peniaze ležia v banke a každý rok strácajú hodnotu",
+    text: (
+      <>
+        Máte odložené tisíce eur na bežnom alebo sporiacom účte. Cítite, že by mali „niekde pracovať", ale neviete kde, ako a či bezpečne. Tak čakáte ďalej mesiace, roky a medzitým ich <strong className="text-foreground">požiera inflácia</strong>.
+      </>
+    ),
   },
   {
-    icon: AlertTriangle,
-    title: "Strácate na inflácii",
-    text: "Na bežnom účte sa vám hromadí hotovosť, no bojíte sa ju investovať, aby ste neurobili chybu pri aktuálnom vývoji trhov.",
+    icon: Puzzle,
+    title: "Niekam už investujete ale bez ucelenej stratégie",
+    text: (
+      <>
+        Máte ETF v nejakej aplikácii a možno fond v banke, ale <strong className="text-foreground">nemáte plán</strong>. Keď trh klesne, neviete, čo máte robiť. Keď príde príležitosť, neviete, ako ju využiť. Váš poradca v banke sa neozval rok.
+      </>
+    ),
   },
   {
-    icon: Clock,
-    title: "Žijete z mesiaca na mesiac",
-    text: "Máte síce skvelý príjem, no cítite, že ak by ste prestali pracovať, váš životný štandard by rýchlo klesol.",
+    icon: Briefcase,
+    title: "Ak by ste zajtra prestali pracovať, čo vám zostane?",
+    text: (
+      <>
+        Váš príjem závisí výhradne od vás. Váš <strong className="text-foreground">majetok za vás zatiaľ nezarába</strong>. Viete presne, v ktorom roku vám vaše aktíva začnú generovať príjem bez toho, aby ste museli vstávať do práce?
+      </>
+    ),
   },
 ];
 
@@ -26,12 +38,11 @@ const ProblemSection = () => {
     <section className="section-padding section-alt">
       <div ref={ref} className="content-width">
         <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-6 text-center`}>
-          Ste úspešný vo svojej kariére, ale{" "}
-          <span className="text-primary">vo financiách máte chaos?</span>
+          Zarábate viac ako 1 500 € mesačne, ale vaše{" "}
+          <span className="text-primary">peniaze stále nemajú jasný smer?</span>
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[700px] mx-auto mb-14 `}>
-          Väčšina úspešných profesionálov, lekárov, manažérov či IT špecialistov robí s peniazmi
-          tú istú chybu. Spoznávate sa v niektorom z týchto bodov?
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[700px] mx-auto mb-14`}>
+          Ak áno, práve to je dôvod, prečo váš majetok nerastie tak, ako by mal. Väčšina vám podobných ľudí robí s peniazmi tú istú chybu. Spoznávate sa v nich?
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">

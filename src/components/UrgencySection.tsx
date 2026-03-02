@@ -21,9 +21,9 @@ const UrgencySection = () => {
 
         <a
           href="#kontakt"
-          className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-xl px-14 py-5 rounded-full shadow-xl`}
+          className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg`}
         >
-          Získať môj plán
+          Získať bezplatný návrh plánu
         </a>
         <p className="text-base text-muted-foreground mt-6 max-w-[560px] mx-auto">
           Úvodný rozhovor slúži výhradne na krátku analýzu vašej situácie. Trvá približne 20 minút a k ničomu vás nezaväzuje.
