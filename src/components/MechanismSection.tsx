@@ -7,28 +7,44 @@ const pillars = [
     num: "01",
     title: "Inteligentné ETF stratégie",
     lead: "Väčšina investorov nakupuje fondy chaoticky a pri prvom poklese trhu v panike predáva.",
-    text: "Vaše portfólio postavíme na nízkonákladových globálnych fondoch. Dostanete od nás nielen prístup k nástrojom, ale presný strategický plán rebalansovania, ktorý vás ochráni pred emočnými chybami v čase krízy. Všetko sledujete prehľadne cez našu aplikáciu UFO.",
+    text: (
+      <>
+        Vaše portfólio postavíme na nízkonákladových globálnych fondoch. Dostanete od nás nielen prístup k nástrojom, ale <strong className="text-foreground">presný strategický plán rebalansovania</strong>, ktorý vás ochráni pred emočnými chybami v čase krízy. Všetko sledujete prehľadne cez našu aplikáciu UFO.
+      </>
+    ),
   },
   {
     icon: Building2,
     num: "02",
     title: "Investičné nehnuteľnosti",
     lead: "Kúpiť byt \"podľa dojmu alebo pocitu\" vás môže stáť desaťtisíce eur na zlých úrokoch a skrytých poplatkoch.",
-    text: "Využijeme váš vysoký príjem ako páku. Vďaka našim unikátnym investičným kalkulačkám vám vopred do eura presne vypočítame vaše ROI, cashflow, a ukážeme vám, v ktorom roku sa vám nehnuteľnosť preklopí do čistého zisku. Toto vám žiadna aplikácia nedá.",
+    text: (
+      <>
+        Využijeme váš vysoký príjem ako páku. Vďaka našim <strong className="text-foreground">unikátnym investičným kalkulačkám</strong> vám vopred do eura presne vypočítame vaše ROI, cashflow, a ukážeme vám, v ktorom roku sa vám nehnuteľnosť preklopí do čistého zisku. Toto vám žiadna aplikácia nedá.
+      </>
+    ),
   },
   {
     icon: Calculator,
     num: "03",
     title: "Daňová optimalizácia",
     lead: "Je zbytočné zarobiť na trhu 10 %, ak štátu odovzdáte 30 % na daniach z nevedomosti.",
-    text: "Hrubý výnos je len polovičný úspech. Portfólio štruktúrujeme tak, aby bolo vaše bohatstvo chránené a aby ste štátu legálne nenechávali viac, ako je absolútne nutné.",
+    text: (
+      <>
+        Hrubý výnos je len polovičný úspech. Portfólio štruktúrujeme tak, aby <strong className="text-foreground">bolo vaše bohatstvo chránené</strong> a aby ste <strong className="text-foreground">štátu legálne nenechávali viac</strong>, ako je absolútne nutné.
+      </>
+    ),
   },
   {
     icon: Wallet,
     num: "04",
     title: "Renta a pravidelný príjem",
     lead: "Veľa ľudí si buduje portfólio, ale nemajú plán, ako z neho v budúcnosti peniaze čerpať. Ak začnete svoje aktíva na dôchodku vyberať náhodne alebo v čase krízy, hrozí vám, že o svoje peniaze prídete oveľa rýchlejšie, než ste plánovali.",
-    text: "V správny čas prestavíme vaše aktíva tak, aby generovali stabilný pasívny príjem (rentu/dividendy) a kúpili vám skutočnú časovú slobodu.",
+    text: (
+      <>
+        V správny čas prestavíme vaše aktíva tak, aby <strong className="text-foreground">generovali stabilný pasívny príjem</strong> (rentu/dividendy) a kúpili vám skutočnú časovú slobodu.
+      </>
+    ),
   },
 ];
 
@@ -39,16 +55,22 @@ const MechanismSection = () => {
     <section className="section-padding">
       <div ref={ref} className="content-width">
         <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-6 text-center`}>
-          Samostatné investičné účty vám rentu nevybudujú. Potrebujete{" "}
-          <span className="text-primary">ucelený systém</span>.
+          Samotné investičné účty vám <span className="text-primary">majetok nevybudujú</span>.
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-6 `}>
-          Investovať cez bežné aplikácie bez ucelenej stratégie je ako stavať dom bez nákresu. Materiál, ako napr. ETF fondy, máte síce k dispozícii, no ak ho poskladáte náhodne, výsledok bude nestabilný.
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
+          Ste úspešný vo svojej kariére. Či už ako lekár, manažér alebo podnikateľ, váš čas je príliš drahý na to, aby ste po večeroch <strong className="text-foreground">študovali finančné trhy a robili pokusy a omyly</strong> s vlastnými úsporami.
         </p>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14 `}>
-          V JS Investor fungujeme ako váš{" "}
-          <strong className="text-foreground">hlavný finančný architekt</strong>. Nenecháme vás robiť pokusy a omyly. Navrhneme pre vás{" "}
-          <strong className="text-primary">JS Wealth System™</strong>. 4-pilierový systém, vďaka ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
+          Keď firma potrebuje rásť a optimalizovať dane, najme si finančného riaditeľa. Ak riešite zložitý právny spor, platíte si špičkového advokáta.
+        </p>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
+          K <strong className="text-foreground">budovaniu vášho celoživotného majetku</strong> by ste mali pristupovať rovnako. Investovať cez bežné aplikácie je ako sadnúť si za volant bez navigácie. Cesta je len na vás a pri prvej kríze riskujete fatálnu chybu, na ktorú ste úplne sami. ETF fondy, sporiace účty a investičné aplikácie. <strong className="text-foreground">To sú len nástroje, nie stratégia.</strong>
+        </p>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
+          V JS Investor fungujeme ako váš <strong className="text-foreground">osobný finančný riaditeľ a architekt</strong>. Nenechávame vás „šoférovať" samých. Nenavrhujeme len fondy. Vytvárame pre vás jasnú, ucelenú stratégiu, ktorá vám dá absolútnu istotu, chráni váš kapitál a rastie spolu s vami.
+        </p>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl md:text-2xl text-foreground font-medium text-center max-w-[720px] mx-auto mt-12 mb-14`}>
+          Spoznajte náš 4-pilierový <strong className="text-primary">JS Wealth System™</strong>, vďaka ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
         </p>
 
         <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} grid md:grid-cols-2 gap-6`}>
@@ -77,7 +99,7 @@ const MechanismSection = () => {
             href="#kontakt"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Chcem JS Wealth System™
+            Získať JS Wealth System™
           </a>
         </div>
       </div>

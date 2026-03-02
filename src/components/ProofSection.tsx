@@ -19,37 +19,6 @@ const ProofSection = () => {
   return (
     <section className="section-padding">
       <div ref={ref} className="content-width text-center">
-        <h2 className={`scroll-animate ${isVisible ? 'visible' : ''} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground  mb-8`}>
-          Čísla hovoria <span className="text-primary">za nás</span>.
-        </h2>
-
-        <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} flex flex-col sm:flex-row justify-center items-center gap-12 md:gap-16 lg:gap-20 mb-16`}>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
-              3 000 000 €
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground mt-2">
-              spravovaný majetok
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
-              300+
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground mt-2">
-              spokojných klientov
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight">
-              7+
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground mt-2 max-w-[200px] mx-auto">
-              rokov skúseností práce (Pod dohľadom NBS)
-            </p>
-          </div>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8 text-left">
           <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? 'visible' : ''} card-hover bg-card rounded-2xl p-10`}>
             <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">
@@ -70,7 +39,7 @@ const ProofSection = () => {
                 href="#kontakt"
                 className="inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3 rounded-full shadow-md hover:bg-primary/90 transition-colors"
               >
-                Chcem JS Wealth System™
+                Získať JS Wealth System™
               </a>
             </div>
           </div>
