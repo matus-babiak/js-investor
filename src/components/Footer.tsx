@@ -46,17 +46,17 @@ const Footer = () => {
               Firemné údaje
             </h4>
             <ul className="space-y-2 text-base text-primary-foreground/70">
-              <li>Jashik s.r.o.</li>
+              <li><span className="font-semibold">Jashik s.r.o.</span></li>
               <li>IČO: 54253969</li>
               <li>DIČ: 2121623086</li>
-              <li>IČ DPH: SK2121623086 (§4, od 1.1.2026)</li>
+              <li>IČ DPH: SK2121623086</li>
             </ul>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground/20 pt-8 gap-6">
           <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} Jashik s.r.o. Všetky práva vyhradené.
+            © {new Date().getFullYear()} <span className="font-semibold">Jashik s.r.o.</span> Všetky práva vyhradené.
           </p>
           <div className="flex gap-4">
             <a

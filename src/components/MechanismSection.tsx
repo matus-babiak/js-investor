@@ -80,7 +80,7 @@ const MechanismSection = () => {
               className="card-hover bg-card rounded-2xl p-8"
             >
               <div className="w-16 h-16 icon-pattern-bg flex items-center justify-center mb-4">
-                <p.icon className="w-8 h-8 text-primary-foreground" />
+                <p.icon className="w-8 h-8 text-primary-foreground -translate-x-0.5" />
               </div>
               <span className="text-sm font-sans font-bold tracking-widest text-primary uppercase mb-1 block">
                 Pilier {p.num}
