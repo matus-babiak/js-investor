@@ -77,7 +77,6 @@ const Navrh1 = () => {
                 src="https://player.vimeo.com/video/1145809910?autoplay=0&title=0&portrait=0&byline=0"
                 title="Vimeo video"
                 allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
                 className="block w-full h-full align-top"
               />
             </div>
