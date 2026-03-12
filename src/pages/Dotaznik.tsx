@@ -6,6 +6,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronRight, Layout } from "lucide-react";
 
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL as string | undefined;
+const WEBHOOK2_URL = import.meta.env.VITE_WEBHOOK2_URL as string | undefined;
+
+const CTA_LEAD_LABEL = "Navrhnúť ucelený systém";
 
 const MAX_POINTS = 19;
 const QUESTION_COUNT = 4;
@@ -204,6 +207,37 @@ const Dotaznik = () => {
     else if (step >= 2 && step <= 5) setStep((step - 1) as StepNum);
   };
 
+  const buildLeadPayload = (resultCat?: number) => {
+    const cat = resultCat ?? resultCategory ?? (totalPoints <= 13 ? 2 : 3);
+    const q1Opt = Q1.options[selectedOption[1] ?? 0];
+    const q2Variant = Q2_VARIANTS[q1Answer ?? 0];
+    const q2Opt = q2Variant?.options[selectedOption[2] ?? 0];
+    const q3Opt = Q3.options[selectedOption[3] ?? 0];
+    const q4Opt = Q4.options[selectedOption[4] ?? 0];
+    return {
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      name: `${firstName.trim()} ${lastName.trim()}`.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      totalPoints,
+      resultCategory: cat,
+      submittedAt: new Date().toISOString(),
+      q1_letter: q1Opt?.letter,
+      q1_text: q1Opt?.text,
+      q1_points: points[1] ?? 0,
+      q2_letter: q2Opt?.letter,
+      q2_text: q2Opt?.text,
+      q2_points: points[2] ?? 0,
+      q3_letter: q3Opt?.letter,
+      q3_text: q3Opt?.text,
+      q3_points: points[3] ?? 0,
+      q4_letter: q4Opt?.letter,
+      q4_text: q4Opt?.text,
+      q4_points: points[4] ?? 0,
+    };
+  };
+
   const handleSubmitContact = async () => {
     const formValid =
       firstName.trim() &&
@@ -219,38 +253,11 @@ const Dotaznik = () => {
     const cat = totalPoints <= 13 ? 2 : 3;
     setIsSubmitting(true);
 
-    const q1Opt = Q1.options[selectedOption[1] ?? 0];
-    const q2Variant = Q2_VARIANTS[q1Answer ?? 0];
-    const q2Opt = q2Variant?.options[selectedOption[2] ?? 0];
-    const q3Opt = Q3.options[selectedOption[3] ?? 0];
-    const q4Opt = Q4.options[selectedOption[4] ?? 0];
-
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: firstName.trim(),
-          lastName: lastName.trim(),
-          name: `${firstName.trim()} ${lastName.trim()}`.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          totalPoints,
-          resultCategory: cat,
-          submittedAt: new Date().toISOString(),
-          q1_letter: q1Opt?.letter,
-          q1_text: q1Opt?.text,
-          q1_points: points[1] ?? 0,
-          q2_letter: q2Opt?.letter,
-          q2_text: q2Opt?.text,
-          q2_points: points[2] ?? 0,
-          q3_letter: q3Opt?.letter,
-          q3_text: q3Opt?.text,
-          q3_points: points[3] ?? 0,
-          q4_letter: q4Opt?.letter,
-          q4_text: q4Opt?.text,
-          q4_points: points[4] ?? 0,
-        }),
+        body: JSON.stringify(buildLeadPayload(cat)),
       });
 
       if (response.ok) {
@@ -260,6 +267,19 @@ const Dotaznik = () => {
       // Bez hlášky
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleCtaClick = async (cta: { label: string; href: string }) => {
+    if (cta.label !== CTA_LEAD_LABEL || !WEBHOOK2_URL) return;
+    try {
+      await fetch(WEBHOOK2_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...buildLeadPayload(), source: "cta_navrhnut_system" }),
+      });
+    } catch {
+      // Bez hlášky
     }
   };
 
@@ -511,6 +531,12 @@ const Dotaznik = () => {
                   href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (cta.label === CTA_LEAD_LABEL && WEBHOOK2_URL) {
+                      e.preventDefault();
+                      handleCtaClick(cta).then(() => window.open(cta.href, "_blank"));
+                    }
+                  }}
                   className={cn(
                     "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
                     cta.primary
