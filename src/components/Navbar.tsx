@@ -20,7 +20,7 @@ const Navbar = () => {
             href="#kontakt"
             className="btn-primary bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full"
           >
-            Konzultácia
+            Navrhnúť ucelený systém
           </a>
         </div>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className="btn-primary block bg-primary text-primary-foreground font-sans font-semibold text-sm px-6 py-2.5 rounded-full text-center"
           >
-            Konzultácia
+            Navrhnúť ucelený systém
           </a>
         </div>
       )}

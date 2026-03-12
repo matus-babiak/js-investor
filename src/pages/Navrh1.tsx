@@ -33,15 +33,29 @@ const Navrh1 = () => {
             <div className="text-center mb-12 md:mb-16">
               <img src={logo} alt="JS Investor" className="hero-animate hero-animate-delay-1 h-[2.2rem] mx-auto mb-6" />
               <p className="hero-animate hero-animate-delay-1 text-base font-sans font-semibold tracking-widest uppercase text-primary mb-6">
-                Váš dlhodobý strategický partner
+                Váš sprievodca budovaním majetku
               </p>
               <h1 className="hero-animate hero-animate-delay-2 text-4xl md:text-5xl lg:text-[58px] font-serif font-bold text-foreground mb-12">
-                Strácajú vaše peniaze hodnotu v banke, alebo im chýba stratégia? <em className="text-primary">Dajte im jasný plán.</em>
+                Zarábate dobre, ale vaše peniaze strácajú hodnotu, alebo nemajú správny smer? <em className="text-primary">Dajte im ucelený systém.</em>
               </h1>
-              <blockquote className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground mb-14 max-w-[720px] mx-auto">
-                <strong className="text-foreground">Nechajte si navrhnúť JS Wealth System™.</strong> Váš komplexný plán na budovanie majetku. Vďaka nemu budete vedieť presne, kde sú vaše peniaze, ako pracujú a kam smerujú.
+              <blockquote className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground mb-10 max-w-[720px] mx-auto">
+                <strong className="text-foreground">Prestaňte sa báť o svoje peniaze.</strong> Získajte <strong className="text-foreground">stabilného partnera</strong>, ktorý je tu vždy pre vás a navrhne vám <strong className="text-foreground">komplexný systém budovania majetku</strong>. Vďaka nemu konečne získate absolútny prehľad o tom, kde je váš kapitál, ako bezpečne pracuje a kam smeruje.
               </blockquote>
-              <ul className="hero-animate hero-animate-delay-3 flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 mt-10 text-base font-sans font-medium text-foreground">
+              <div className="hero-animate hero-animate-delay-4 flex flex-wrap gap-4 items-center justify-center mb-10">
+                <a
+                  href="/dotaznik"
+                  className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
+                >
+                  Navrhnúť ucelený systém
+                </a>
+                <a
+                  href="#ako-to-funguje"
+                  className="inline-block font-sans font-thin text-base text-foreground hover:text-primary transition-colors"
+                >
+                  Ako to funguje →
+                </a>
+              </div>
+              <ul className="hero-animate hero-animate-delay-3 flex flex-wrap items-center justify-center gap-8 md:gap-12 text-base font-sans font-medium text-foreground">
                 <li className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
                   Komplexná majetková stratégia
@@ -55,20 +69,6 @@ const Navrh1 = () => {
                   Istota a dlhodobé partnerstvo
                 </li>
               </ul>
-              <div className="hero-animate hero-animate-delay-4 flex flex-wrap gap-4 items-center justify-center">
-                <a
-                  href="/dotaznik"
-                  className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
-                >
-                  Naplánovať prvé stretnutie
-                </a>
-                <a
-                  href="#ako-to-funguje"
-                  className="inline-block font-sans font-thin text-base text-foreground hover:text-primary transition-colors"
-                >
-                  Ako to funguje →
-                </a>
-              </div>
             </div>
 
             {/* Video */}
@@ -134,13 +134,13 @@ function ChaosSection() {
       title: "Vo financiách sa cítite stratený",
       content: (
         <>
-          Vybudovali ste si skvelý príjem, no na bežnom alebo sporiacom <strong className="text-foreground">účte vám ležia tisícky eur,</strong> ktoré <strong className="text-foreground">potichu požiera inflácia</strong>. Cítite vnútornú frustráciu, pretože viete, že s vaším kapitálom nepracujete efektívne, no <strong className="text-foreground">chýba vám ucelená stratégia a jasný plán,</strong> čo presne s peniazmi urobiť o rok či o 10 rokov.
+          Vybudovali ste si skvelý príjem, no na bežnom alebo sporiacom <strong className="text-foreground">účte vám ležia tisícky eur,</strong> ktoré <strong className="text-foreground">potichu požiera inflácia</strong>. Cítite vnútornú frustráciu, pretože viete, že s vaším kapitálom nepracujete efektívne, no <strong className="text-foreground">chýba vám komplexná stratégia a ucelený systém,</strong> čo presne s peniazmi urobiť o rok či o 10 rokov.
         </>
       ),
     },
     {
       icon: Building2,
-      title: "Veríte, že sú v dobrých rukách",
+      title: "Veríte, že vaše peniaze sú v dobrých rukách",
       content: (
         <>
           Svoje úspory ste zverili banke alebo inej spoločnosti, pretože vo vás <strong className="text-foreground">evokovala pocit istoty.</strong> A výsledok? Váš „privátny poradca" vám predal desiatky drahých podielových fondov. <strong className="text-foreground">Platíte zbytočné </strong>vstupné a správcovské<strong className="text-foreground"> poplatky</strong> (často až 2 % ročne). Alebo vás pri <strong className="text-foreground">výbere čakajú vysoké dane.</strong>
@@ -173,7 +173,7 @@ function ChaosSection() {
           <em className="text-primary">Nie ste v tom sami.</em> Väčšina našich klientov prišla s podobným príbehom.
         </h2>
         <p className="text-xl md:text-2xl text-muted-foreground text-center mb-10">
-          Väčšina vám podobných ľudí robí s peniazmi tú istú chybu. Spoznávate sa v nich?
+          Mnohí úspešní profesionáli robia so svojimi peniazmi <strong>stále tie isté chyby.</strong> Spoznávate sa v niektorej z nich?
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {problems.map((p, i) => (
@@ -190,7 +190,7 @@ function ChaosSection() {
           ))}
         </div>
         <blockquote className={`scroll-animate scroll-animate-delay-5 ${isVisible ? "visible" : ""} text-lg md:text-xl text-center text-muted-foreground max-w-[720px] mx-auto`}>
-          Ak áno, práve to je dôvod, prečo váš majetok nerastie tak, ako by mal. Je to symptóm toho, že <strong className="text-foreground">vaše peniaze nemajú ucelený systém.</strong>
+          Ak áno, práve to je dôvod, prečo váš majetok nerastie tak, ako by mal. Je to symptóm toho, že <strong className="text-foreground">vaše peniaze nemajú komplexný systém.</strong>
         </blockquote>
         <div className="flex justify-center mt-10">
           <a
@@ -221,9 +221,9 @@ function WealthMapSection() {
       num: "2",
       title: "Investičné nehnuteľnosti a financovanie",
       paragraphs: [
-        <>Uvažujete nad kúpou investičného bytu.</>,
-        <>Nákup "na základe pocitov" vás môže dostať do <strong className="text-foreground">nevýhodnej hypotéky</strong> a roky vás <strong className="text-foreground">finančne vyčerpávať</strong> negatívnym cashflowom.</>,
-        <>Na stôl vám položíme presnú ROI kalkulačku s optimistickým aj stresovým scenárom. <strong className="text-foreground">Či sa byt oplatí kúpiť, rozhodneme spoločne.</strong> Čisto na základe čísiel.</>,
+        <>Investičné nehnuteľnosti nakupujete len na základe <strong className="text-foreground">intuície, emócií</strong> alebo zdanlivo <strong className="text-foreground">„výhodnej ponuky“</strong> na trhu.</>,
+        <>Nákup „na základe pocitov“ vás môže dostať do <strong className="text-foreground">nevýhodnej hypotéky</strong> a roky vás <strong className="text-foreground">finančne vyčerpávať</strong> negatívnym cashflowom.</>,
+        <>Na stôl vám položíme presnú ROI kalkulačku s optimistickým aj stresovým scenárom. <strong className="text-foreground">Či sa byt oplatí kúpiť, rozhodneme spoločne.</strong> Čisto na základe exaktných čísiel.</>,
       ],
     },
     {
@@ -239,7 +239,7 @@ function WealthMapSection() {
       num: "4",
       title: "Renta a skutočná sloboda",
       paragraphs: [
-        <>Budujete si majetok, ale <strong className="text-foreground">chýba vám presný plán,</strong> ako a kedy si ho reálne začnete užívať.</>,
+        <>Budujete si majetok, ale <strong className="text-foreground">chýba vám presný systém,</strong> ako a kedy si ho reálne začnete užívať.</>,
         <>Bez bezpečnej „výstupnej stratégie" riskujete, že trhové výkyvy v nesprávny čas <strong className="text-foreground">ohrozia vašu celoživotnú snahu o finančnú nezávislosť.</strong></>,
         <>V správny čas prestavíme vaše aktíva do rentového módu, aby vám <strong className="text-foreground">generovali stabilný pasívny príjem.</strong> V dobrých aj zlých rokoch.</>,
       ],
@@ -253,10 +253,10 @@ function WealthMapSection() {
         </h2>
         <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-muted-foreground text-center max-w-[800px] mx-auto mb-14 space-y-12`}>
           <p className="text-xl md:text-2xl">
-            <strong className="text-primary font-semibold">JS Wealth System™</strong> nie sú štyri izolované produkty, s ktorými následne ostanete sami. Je to <strong className="text-foreground">jeden prepojený ekosystém</strong> a váš osobný <strong className="text-foreground">plán na budovanie majetku.</strong>
+            <strong className="text-primary font-semibold">JS Wealth System™</strong> nie sú štyri izolované produkty, s ktorými následne ostanete sami. Je to <strong className="text-foreground">jeden prepojený ekosystém</strong> a váš osobný <strong className="text-foreground">systém na budovanie majetku.</strong>
           </p>
           <p className="text-lg md:text-xl">
-            Spojíme vaše financie do <strong className="text-foreground">jedného fungujúceho celku,</strong> ktorý má <strong className="text-foreground">jasný smer a konkrétny cieľ:</strong> delegovať zložité finančné rozhodnutia na <strong className="text-foreground">vášho osobného sprievodcu budovaním majetku,</strong> aby ste získali pocit absolútneho bezpečia a istotu, že vaše peniaze systematicky rastú, kým vy <strong className="text-foreground">svoj ušetrený čas</strong> naplno venujete vlastnej <strong className="text-foreground">kariére a rodine.</strong>
+            Spojíme vaše financie do <strong className="text-foreground">jedného fungujúceho celku,</strong> ktorý má <strong className="text-foreground">jasný smer a konkrétny cieľ:</strong> delegovať zložité finančné rozhodnutia na <strong className="text-foreground">vášho sprievodcu budovaním majetku,</strong> aby ste získali pocit absolútneho bezpečia a istotu, že vaše peniaze systematicky rastú, kým vy <strong className="text-foreground">svoj ušetrený čas</strong> naplno venujete vlastnej <strong className="text-foreground">kariére a rodine.</strong>
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
@@ -282,7 +282,7 @@ function WealthMapSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Navrhnúť JS Wealth System™
+            Navrhnúť ucelený systém
           </a>
         </div>
       </div>
@@ -301,9 +301,9 @@ function BeforeAfterSection() {
     "Ste na to sami: Na dôležité rozhodnutia o vašom veľkom kapitále a jeho správe ste zostali úplne sami.",
   ];
   const po = [
-    "Jasná stratégia: Získate jeden prepojený plán, ucelenú majetkovú mapu a stabilného dlhodobého partnera.",
+    "Jasná stratégia: Získate jeden prepojený systém, komplexný systém budovania majetku a stabilného dlhodobého partnera.",
     "Všetko pod jednou strechou: Aplikácia UFO – ráno ju otvoríte a na jeden klik vidíte presné číslo rastu vášho čistého majetku.",
-    "Priateľ na telefóne: Zavoláte svojmu sprievodcovi, kedykoľvek potrebujete. Pri kúpe bytu, mimoriadnom bonuse alebo trhovej kríze.",
+    "Priamy prístup k expertovi pri každom dôležitom rozhodnutí: Zavoláte svojmu sprievodcovi budovaním majetku, kedykoľvek to potrebujete. Pri kúpe bytu, mimoriadnom bonuse alebo na zachovanie chladnej hlavy počas trhovej krízy.",
     "Jeden funkčný ekosystém: ETF fondy, investičné byty, daňová optimalizácia a renta – všetko je logicky prepojené a dáva matematický zmysel.",
     "Kľudný spánok a sloboda: Delegovali ste zodpovednosť. Váš kapitál teraz systematicky pracuje za vás, kým vy sa venujete kariére a rodine.",
   ];
@@ -311,7 +311,7 @@ function BeforeAfterSection() {
     <section id="pred-po" className="section-padding section-alt">
       <div ref={ref} className="content-width">
         <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-16 text-center`}>
-          Už na svoje financie nemusíte byť sami. Získajte <em className="text-primary">sprievodcu a pocit absolútneho bezpečia.</em>
+          Už na svoje financie nemusíte byť sami. Získajte <em className="text-primary">pocit absolútneho bezpečia.</em>
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} card-hover-accent bg-card-alt rounded-2xl p-10`}>
@@ -377,7 +377,7 @@ function ForWhomSection() {
           JS Wealth System™ <em className="text-primary">nie je pre každého.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14`}>
-          Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia skúseného sprievodcu. Pri práci využívame <strong className="text-foreground">DISC model</strong> na lepšie pochopenie vašich potrieb.
+          Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku. Pri práci využívame <strong className="text-foreground">DISC model</strong> na lepšie pochopenie vašich potrieb.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-10`}>
@@ -420,7 +420,7 @@ function ForWhomSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Naplánovať prvé stretnutie
+            Navrhnúť ucelený systém
           </a>
         </div>
       </div>
@@ -463,7 +463,7 @@ function TestimonialsSection() {
           Čo hovoria klienti, <em className="text-primary font-bold">ktorí sa už rozhodli.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground max-w-[700px] mx-auto mb-14`}>
-          Reálne skúsenosti ľudí, ktorí našli svojho <em>sprievodcu investovaním a získali pocit absolútneho bezpečia</em> v každej trhovej situácii.
+          Reálne skúsenosti ľudí, ktorí našli svojho <strong>sprievodcu budovaním majetku a získali pocit absolútneho bezpečia</strong> v každej trhovej situácii.
         </p>
         <div className="space-y-10 max-w-[800px] mx-auto mb-16">
           {real.map((t, i) => (
@@ -536,7 +536,7 @@ function AboutSection() {
           {/* Ľavý stĺpec: text + tlačidlo */}
           <div>
             <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-10 text-left`}>
-              Som tu pre vás, aby ste sa o svoje peniaze <strong className="text-foreground">už nikdy nemuseli báť</strong>. Aby ste získali <strong className="text-foreground">stabilného sprievodcu</strong>, ktorému môžete <strong className="text-foreground">s dôverou kedykoľvek zavolať</strong>. Keď sa vám na účte naakumuluje mimoriadnych 20 000 €, keď budete prepočítavať kúpu investičného bytu, alebo keď trhy klesnú a všade naokolo zavládne panika.
+              Som tu pre vás, aby ste sa o svoje peniaze <strong className="text-foreground">už nikdy nemuseli báť</strong>. Aby ste získali <strong className="text-foreground">sprievodcu budovaním majetku</strong>, ktorému môžete <strong className="text-foreground">s dôverou kedykoľvek zavolať</strong>. Keď sa vám na účte naakumuluje mimoriadnych 20 000 €, keď budete prepočítavať kúpu investičného bytu, alebo keď trhy klesnú a všade naokolo zavládne panika.
             </p>
             <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-10 text-left`}>
               <strong className="text-foreground">Toto je moja skutočná práca.</strong> Nepredávať vám finančné produkty. Byť vaším <strong className="text-foreground">stabilným partnerom</strong> pri budovaní majetku <strong className="text-foreground">na nasledujúce desaťročia</strong>.
@@ -546,7 +546,7 @@ function AboutSection() {
                 href="/dotaznik"
                 className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
               >
-                Naplánovať prvé stretnutie
+                Navrhnúť ucelený systém
               </a>
             </div>
           </div>
@@ -585,14 +585,14 @@ function GroupBenefitSection() {
           Vstúpite do uzavretej skupiny <em className="text-primary">JS Investorov.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-lg md:text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-10`}>
-          Každý klient s JS Wealth Systémom automaticky získava prístup do našej <strong className="text-foreground">súkromnej komunity</strong>. Je to priestor, kde pravidelne zdieľame hĺbkové analýzy trhov, PDF reporty a investičné príležitosti, ktoré <strong className="text-foreground">bežný klient banky nikdy neuvidí</strong>.
+          Každý klient s JS Wealth System™ automaticky získava prístup do našej <strong className="text-foreground">súkromnej komunity</strong>. Je to priestor, kde pravidelne zdieľame hĺbkové analýzy trhov, PDF reporty a investičné príležitosti, ktoré <strong className="text-foreground">bežný klient banky nikdy neuvidí</strong>.
         </p>
         <div className="flex justify-center mb-10">
           <a
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Chcem získať prístup
+            Navrhnúť ucelený systém
           </a>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -627,27 +627,27 @@ function GuaranteeSection() {
         </p>
         <div className="flex flex-col gap-8 max-w-[720px] mx-auto">
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
-            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-1">
+            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
               <Calculator className="w-7 h-7 text-primary" />
             </div>
             <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">Transparentnosť a partnerstvo</h3>
             <p className="text-lg font-sans font-semibold text-foreground mb-3">Férové poplatky (0 % do 50 000 €)</p>
             <div className="text-lg text-muted-foreground space-y-4">
               <p>Väčšina bánk si účtuje vysoké vstupné a správcovské poplatky (často okolo 2 % ročne) bez ohľadu na to, či vôbec zarábate. Môj model je postavený na <strong className="text-foreground">reálnom raste a férovej matematike</strong>:</p>
-              <p><strong className="text-foreground">Do výšky majetku 50 000 €:</strong> Neplatíte absolútne žiadny poplatok za správu (0 %). Chcem, aby váš majetok v začiatkoch naberal na hodnote čo najrýchlejšie.</p>
+              <p><strong className="text-foreground">Do výšky majetku 50 000 €:</strong> Neplatíte absolútne žiadny poplatok za správu (0 %). Moja odmena pochádza zo spoluprác nad rámec spravovaného majetku, takže vaše peniaze netrpia zbytočnými zrážkami. Chcem, aby váš majetok v začiatkoch naberal na hodnote čo najrýchlejšie a naša spolupráca stála na absolútnej transparentnosti.</p>
               <p><strong className="text-foreground">Od 50 000 € do 100 000 €:</strong> Aplikujeme transparentný, zlomkový poplatok len 0,27 % ročne.</p>
               <p><strong className="text-foreground">Nad 100 000 €:</strong> Poplatok je nastavený na minimálnych 0,49 % ročne.</p>
               <p><strong className="text-foreground">Žiadne skryté podmienky a cenníky malým písmom.</strong> Zarábam férovo až vtedy, keď váš majetok prekoná úvodnú hranicu a <strong className="text-foreground">reálne rastieme spoločne</strong>.</p>
             </div>
           </div>
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
-            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-1">
+            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
               <Phone className="w-7 h-7 text-primary" />
             </div>
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">Sprievodca kedykoľvek „na telefóne“</h3>
+            <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">Priamy prístup k expertovi pri každom dôležitom rozhodnutí</h3>
             <div className="text-lg text-muted-foreground space-y-4">
-              <p>Garantujem vám, že na dôležité finančné rozhodnutia <strong className="text-foreground">už nikdy nebudete sami</strong>. Moja štandardná konzultácia stojí 250 €/hod., no vy ako klient JS Wealth Systému máte moju podporu <strong className="text-foreground">kedykoľvek k dispozícii</strong>.</p>
-              <p>Či už riešite kúpu investičného bytu, zvažujete vložiť mimoriadny vklad, alebo sa len potrebujete poradiť a <strong className="text-foreground">zachovať chladnú hlavu</strong> počas trhovej krízy – <strong className="text-foreground">som tu pre vás</strong>.</p>
+              <p>Zavoláte svojmu sprievodcovi budovaním majetku, kedykoľvek to potrebujete. Pri kúpe bytu, mimoriadnom bonuse alebo na zachovanie chladnej hlavy počas trhovej krízy.</p>
+              <p>Garantujem vám, že na dôležité finančné rozhodnutia <strong className="text-foreground">už nikdy nebudete sami</strong>. Moja štandardná konzultácia stojí 250 €/hod., no vy ako klient JS Wealth System™ máte moju podporu <strong className="text-foreground">kedykoľvek k dispozícii</strong>.</p>
             </div>
           </div>
         </div>
@@ -662,16 +662,16 @@ function FinalCtaSection() {
     <section id="kontakt" className="section-padding">
       <div ref={ref} className="content-width text-center">
         <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-8`}>
-          Vaše peniaze si zaslúžia <em className="text-primary">ucelený systém a vy stabilného partnera.</em>
+          Vaše peniaze si zaslúžia <em className="text-primary">komplexný systém a vy stabilného partnera.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground max-w-[720px] mx-auto mb-10`}>
-          Prestaňte na trhu experimentovať. Zarezervujte si <strong className="text-foreground">nezáväzný úvodný hovor</strong>, kde zhodnotíme vašu aktuálnu situáciu a otvorene si povieme, či je náš <strong className="text-foreground">JS Wealth Systém™</strong> pre vás tým správnym riešením.
+          Prestaňte na trhu experimentovať. Zarezervujte si <strong className="text-foreground">nezáväzný úvodný hovor</strong>, kde zhodnotíme vašu aktuálnu situáciu a otvorene si povieme, či je náš <strong className="text-foreground">JS Wealth System™</strong> pre vás tým správnym riešením.
         </p>
         <a
           href="/dotaznik"
           className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg`}
         >
-          Naplánovať prvé stretnutie
+          Navrhnúť ucelený systém
         </a>
         <p className="text-base text-muted-foreground mt-6 max-w-[560px] mx-auto">
           Úvodný hovor je nezáväzný · Absolútna diskrétnosť · Pod dohľadom NBS

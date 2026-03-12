@@ -9,7 +9,7 @@ const pillars = [
     lead: "Väčšina investorov nakupuje fondy chaoticky a pri prvom poklese trhu v panike predáva.",
     text: (
       <>
-        Vaše portfólio postavíme na nízkonákladových globálnych fondoch. Dostanete od nás nielen prístup k nástrojom, ale <strong className="text-foreground">presný strategický plán rebalansovania</strong>, ktorý vás ochráni pred emočnými chybami v čase krízy. Všetko sledujete prehľadne cez našu aplikáciu UFO.
+        Vaše portfólio postavíme na nízkonákladových globálnych fondoch. Dostanete od nás nielen prístup k nástrojom, ale <strong className="text-foreground">presný strategický systém rebalansovania</strong>, ktorý vás ochráni pred emočnými chybami v čase krízy. Všetko sledujete prehľadne cez našu aplikáciu UFO.
       </>
     ),
   },
@@ -39,7 +39,7 @@ const pillars = [
     icon: Wallet,
     num: "04",
     title: "Renta a pravidelný príjem",
-    lead: "Veľa ľudí si buduje portfólio, ale nemajú plán, ako z neho v budúcnosti peniaze čerpať. Ak začnete svoje aktíva na dôchodku vyberať náhodne alebo v čase krízy, hrozí vám, že o svoje peniaze prídete oveľa rýchlejšie, než ste plánovali.",
+    lead: "Veľa ľudí si buduje portfólio, ale nemajú systém, ako z neho v budúcnosti peniaze čerpať. Ak začnete svoje aktíva na dôchodku vyberať náhodne alebo v čase krízy, hrozí vám, že o svoje peniaze prídete oveľa rýchlejšie, než ste plánovali.",
     text: (
       <>
         V správny čas prestavíme vaše aktíva tak, aby <strong className="text-foreground">generovali stabilný pasívny príjem</strong> (rentu/dividendy) a kúpili vám skutočnú časovú slobodu.
@@ -64,10 +64,10 @@ const MechanismSection = () => {
           Keď firma potrebuje rásť a optimalizovať dane, najme si finančného riaditeľa. Ak riešite zložitý právny spor, platíte si špičkového advokáta.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
-          K <strong className="text-foreground">budovaniu vášho celoživotného majetku</strong> by ste mali pristupovať rovnako. Investovať bez jasného plánu a stratégie je ako sadnúť si za volant bez navigácie. Cesta je len na vás a pri prvej kríze riskujete fatálnu chybu, na ktorú ste úplne sami.
+          K <strong className="text-foreground">budovaniu vášho celoživotného majetku</strong> by ste mali pristupovať rovnako. Investovať bez jasného systému a stratégie je ako sadnúť si za volant bez navigácie. Cesta je len na vás a pri prvej kríze riskujete fatálnu chybu, na ktorú ste úplne sami.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-8`}>
-          V JS Investor fungujeme ako váš <strong className="text-foreground">osobný finančný riaditeľ a architekt</strong>. Nenechávame vás „šoférovať" samých. Nenavrhujeme len fondy. <strong className="text-foreground">Vytvárame pre vás jasnú, ucelenú stratégiu,</strong> ktorá vám dá absolútnu istotu, chráni váš kapitál a rastie spolu s vami.
+          V JS Investor fungujeme ako váš <strong className="text-foreground">osobný finančný riaditeľ a architekt</strong>. Nenechávame vás „šoférovať" samých. Nenavrhujeme len fondy. <strong className="text-foreground">Vytvárame pre vás jasnú, komplexnú stratégiu,</strong> ktorá vám dá absolútnu istotu, chráni váš kapitál a rastie spolu s vami.
         </p>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl md:text-2xl text-foreground font-medium text-center max-w-[720px] mx-auto mt-12 mb-14`}>
           Spoznajte náš 4-pilierový <strong className="text-primary">JS Wealth System™</strong>, vďaka ktorému získate absolútnu kontrolu nad svojou budúcnosťou:
@@ -99,7 +99,7 @@ const MechanismSection = () => {
             href="#kontakt"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Získať JS Wealth System™
+            Navrhnúť ucelený systém
           </a>
         </div>
       </div>

@@ -39,7 +39,7 @@ const ProofSection = () => {
                 href="#kontakt"
                 className="inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3 rounded-full shadow-md hover:bg-primary/90 transition-colors"
               >
-                Získať JS Wealth System™
+                Navrhnúť ucelený systém
               </a>
             </div>
           </div>

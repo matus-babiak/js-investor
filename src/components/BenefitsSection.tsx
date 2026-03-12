@@ -7,7 +7,7 @@ const benefits = [
     title: "Poriadok a ušetrený čas",
     text: (
       <>
-        Už žiadne náhodné nakupovanie akcií a sledovanie grafov. Získate exaktný plán a{" "}
+        Už žiadne náhodné nakupovanie akcií a sledovanie grafov. Získate exaktný systém a{" "}
         <strong className="text-foreground">ušetríte desiatky hodín mesačne</strong>, ktoré môžete venovať kariére alebo rodine.
       </>
     ),

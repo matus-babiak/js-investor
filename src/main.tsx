@@ -13,7 +13,8 @@ if (import.meta.env.DEV) {
     if (
       /React DevTools|Download the React DevTools/i.test(msg) ||
       /WebSocket connection to 'ws:\/\//.test(msg) ||
-      /listener indicated an asynchronous response/i.test(msg)
+      /listener indicated an asynchronous response/i.test(msg) ||
+      /Permissions policy violation|unload is not allowed/i.test(msg)
     )
       return;
     method.apply(console, args);

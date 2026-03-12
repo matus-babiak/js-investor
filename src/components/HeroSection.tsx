@@ -15,13 +15,13 @@ const HeroSection = () => {
             <span className="text-primary">Dajte im systém.</span>
           </h1>
           <p className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground mb-10">
-            Nechajte si navrhnúť <strong className="text-foreground">JS Wealth System™</strong>. Komplexný plán budovania majetku na mieru, vďaka ktorému budete vedieť presne, kde sú vaše peniaze, ako pracujú a kam smerujú.
+            Nechajte si navrhnúť <strong className="text-foreground">JS Wealth System™</strong>. Komplexný systém budovania majetku na mieru, vďaka ktorému budete vedieť presne, kde sú vaše peniaze, ako pracujú a kam smerujú.
           </p>
           <a
             href="#kontakt"
             className="hero-animate hero-animate-delay-4 btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Získať bezplatný návrh plánu
+            Navrhnúť ucelený systém
           </a>
           <p className="hero-animate hero-animate-delay-4 text-base text-muted-foreground mt-4">
             Úvodný hovor trvá 20 minút a k ničomu vás nezaväzuje.

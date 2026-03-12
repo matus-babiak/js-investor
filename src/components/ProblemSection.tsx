@@ -13,10 +13,10 @@ const problems = [
   },
   {
     icon: Puzzle,
-    title: "Niekam už investujete ale bez ucelenej stratégie",
+    title: "Niekam už investujete ale bez komplexnej stratégie",
     text: (
       <>
-        Máte ETF v nejakej aplikácii a možno fond v banke, ale <strong className="text-foreground">nemáte plán</strong>. Keď trh klesne, neviete, čo máte robiť. Keď príde príležitosť, neviete, ako ju využiť. Váš poradca v banke sa neozval rok.
+        Máte ETF v nejakej aplikácii a možno fond v banke, ale <strong className="text-foreground">nemáte systém</strong>. Keď trh klesne, neviete, čo máte robiť. Keď príde príležitosť, neviete, ako ju využiť. Váš poradca v banke sa neozval rok.
       </>
     ),
   },
@@ -42,7 +42,7 @@ const ProblemSection = () => {
           <span className="text-primary">peniaze stále nemajú jasný smer?</span>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? 'visible' : ''} text-xl text-muted-foreground text-center max-w-[700px] mx-auto mb-14`}>
-          Ak áno, práve to je dôvod, prečo váš majetok nerastie tak, ako by mal. Väčšina vám podobných ľudí robí s peniazmi tú istú chybu. Spoznávate sa v nich?
+          Ak áno, práve to je dôvod, prečo váš majetok nerastie tak, ako by mal. Mnohí úspešní profesionáli robia so svojimi peniazmi <strong>stále tie isté chyby.</strong> Spoznávate sa v niektorej z nich?
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">

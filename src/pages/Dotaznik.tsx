@@ -26,7 +26,7 @@ const Q2_VARIANTS = [
   {
     label: "Otázka 2 z 4",
     question: "Akú mesačnú rentu by ste považovali za životnú zmenu?",
-    sub: "Konkrétne číslo nám pomôže nastaviť realistický plán — nie ideálny scenár.",
+    sub: "Konkrétne číslo nám pomôže nastaviť realistický systém — nie ideálny scenár.",
     options: [
       { letter: "A", text: "Do 500 € mesačne", pts: 2 },
       { letter: "B", text: "500 € – 1 500 € mesačne", pts: 4 },
@@ -111,17 +111,17 @@ const RESULTS = [
     title: "Zarábate dobre. Vaše peniaze to zatiaľ nevedia.",
     profile: "Rastúci investor",
     paragraphs: [
-      "Máte príjem, máte potenciál — chýba vám jasný systém. Ľudia vo vašej situácii väčšinou skončia buď v bankovom fonde s vysokými poplatkami, alebo náhodne klikajú v investičnej aplikácii bez stratégie. Ani jedno nie je plán.",
+      "Máte príjem, máte potenciál — chýba vám ucelený systém. Ľudia vo vašej situácii väčšinou skončia buď v bankovom fonde s vysokými poplatkami, alebo náhodne klikajú v investičnej aplikácii bez stratégie. Ani jedno nie je systém.",
       "Vaše peniaze medzičasom ticho strácajú hodnotu — nie dramaticky, ale istotne. Tento stav je presne riešiteľný. Nepotrebujete hneď veľký kapitál ani komplexnú správu. Potrebujete vedieť, kde stojíte a čo spraviť ako prvé.",
       "Dohodnite si bezplatný hovor so špecialistom. Nie predajný call — konkrétna diagnostika vašej situácie a jasný ďalší krok.",
     ],
     ctas: [
-      { label: "Rezervovať bezplatný hovor so špecialistom", href: "https://jsmentor.sk", primary: true },
+      { label: "Navrhnúť ucelený systém", href: "https://jsmentor.sk", primary: true },
       { label: "Radšej sa najprv vzdelávať", href: "https://jsmentor.sk/herohero", primary: false },
     ],
   },
   {
-    tag: "JS Wealth System",
+    tag: "JS Wealth System™",
     tagClass: "bg-primary text-primary-foreground",
     icon: "💼",
     iconBg: "bg-primary/10",
@@ -129,10 +129,10 @@ const RESULTS = [
     profile: "Slovenský Henry",
     paragraphs: [
       "Zarábate nadštandardne. Máte kapitál, máte cieľ. Chýba vám niekto, kto sa na váš majetok pozrie ako na celok — nie ako na sériu izolovaných produktov.",
-      "JS Wealth System™ nie je ďalší fond ani aplikácia. Je to komplexný plán budovania majetku postavený na štyroch pilieroch: ETF stratégie, investičná nehnuteľnosť, daňová optimalizácia a dlhodobá renta. Všetko prepojené, všetko viditeľné na jednom mieste.",
+      "JS Wealth System™ nie je ďalší fond ani aplikácia. Je to komplexný systém budovania majetku postavený na štyroch pilieroch: ETF stratégie, investičná nehnuteľnosť, daňová optimalizácia a dlhodobá renta. Všetko prepojené, všetko viditeľné na jednom mieste.",
       "Prvý krok je bezplatný strategický hovor priamo s Ivanom. Nie konzultácia — diagnostika vášho majetku s konkrétnym výstupom. Bez záväzku.",
     ],
-    ctas: [{ label: "Dohodnúť hovor priamo s Ivanom", href: "https://www.jsinvestor.sk/chcem-investovat/", primary: true }],
+    ctas: [{ label: "Navrhnúť ucelený systém", href: "https://www.jsinvestor.sk/chcem-investovat/", primary: true }],
   },
 ];
 
