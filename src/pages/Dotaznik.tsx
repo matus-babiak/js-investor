@@ -211,7 +211,9 @@ const Dotaznik = () => {
     if (!formValid || !gdprValid) return;
 
     if (!WEBHOOK_URL) {
-      toast.error("Webhook nie je nakonfigurovaný. Skontrolujte .env.");
+      toast.error(
+        "Webhook nie je nakonfigurovaný. V koreni projektu vytvorte súbor .env s riadkom: VITE_WEBHOOK_URL=https://hook.eu2.make.com/... Potom reštartujte dev server (zastavte a znova spustite npm run dev)."
+      );
       return;
     }
 
