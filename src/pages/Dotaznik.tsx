@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -161,7 +160,8 @@ const Dotaznik = () => {
   const [points, setPoints] = useState<Record<number, number>>({ 1: 0, 2: 0, 3: 0, 4: 0 });
   const [selectedOption, setSelectedOption] = useState<Record<number, number>>({});
   const [resultCategory, setResultCategory] = useState<1 | 2 | 3 | null>(null);
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gdpr, setGdpr] = useState(false);
@@ -205,43 +205,59 @@ const Dotaznik = () => {
   };
 
   const handleSubmitContact = async () => {
-    const formValid = name.trim() && EMAIL_REGEX.test(email.trim()) && phone.trim().length >= 6;
+    const formValid =
+      firstName.trim() &&
+      lastName.trim() &&
+      EMAIL_REGEX.test(email.trim()) &&
+      phone.trim().length >= 6;
     const gdprValid = gdpr;
     setErrors({ form: !formValid, gdpr: !gdprValid });
     if (!formValid || !gdprValid) return;
 
-    if (!WEBHOOK_URL) {
-      toast.error(
-        "Webhook nie je nakonfigurovaný. V koreni projektu vytvorte súbor .env s riadkom: VITE_WEBHOOK_URL=https://hook.eu2.make.com/... Potom reštartujte dev server (zastavte a znova spustite npm run dev)."
-      );
-      return;
-    }
+    if (!WEBHOOK_URL) return;
 
     const cat = totalPoints <= 13 ? 2 : 3;
     setIsSubmitting(true);
+
+    const q1Opt = Q1.options[selectedOption[1] ?? 0];
+    const q2Variant = Q2_VARIANTS[q1Answer ?? 0];
+    const q2Opt = q2Variant?.options[selectedOption[2] ?? 0];
+    const q3Opt = Q3.options[selectedOption[3] ?? 0];
+    const q4Opt = Q4.options[selectedOption[4] ?? 0];
 
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name.trim(),
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          name: `${firstName.trim()} ${lastName.trim()}`.trim(),
           email: email.trim(),
           phone: phone.trim(),
           totalPoints,
           resultCategory: cat,
           submittedAt: new Date().toISOString(),
+          q1_letter: q1Opt?.letter,
+          q1_text: q1Opt?.text,
+          q1_points: points[1] ?? 0,
+          q2_letter: q2Opt?.letter,
+          q2_text: q2Opt?.text,
+          q2_points: points[2] ?? 0,
+          q3_letter: q3Opt?.letter,
+          q3_text: q3Opt?.text,
+          q3_points: points[3] ?? 0,
+          q4_letter: q4Opt?.letter,
+          q4_text: q4Opt?.text,
+          q4_points: points[4] ?? 0,
         }),
       });
 
       if (response.ok) {
         setResultCategory(cat);
-        toast.success("Dáta boli odoslané. Zobrazujeme váš výsledok.");
-      } else {
-        toast.error("Odoslanie zlyhalo. Skúste to prosím znova.");
       }
     } catch {
-      toast.error("Chyba pri odosielaní. Skontrolujte internetové pripojenie.");
+      // Bez hlášky
     } finally {
       setIsSubmitting(false);
     }
@@ -339,18 +355,33 @@ const Dotaznik = () => {
                 </h1>
                 <p className="text-sm text-muted-foreground leading-snug mb-6">{formTitle.sub}</p>
                 <div className="space-y-4 mb-4">
-                  <div>
-                    <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">
-                      Meno
-                    </label>
-                    <Input
-                      type="text"
-                      placeholder="Ján Novák"
-                      autoComplete="given-name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="bg-muted/50"
-                    />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">
+                        Meno
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ján"
+                        autoComplete="given-name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        className="bg-muted/50 placeholder:text-muted-foreground/45"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">
+                        Priezvisko
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Novák"
+                        autoComplete="family-name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        className="bg-muted/50 placeholder:text-muted-foreground/45"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">
@@ -362,7 +393,7 @@ const Dotaznik = () => {
                       autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="bg-muted/50"
+                      className="bg-muted/50 placeholder:text-muted-foreground/45"
                     />
                   </div>
                   <div>
@@ -375,7 +406,7 @@ const Dotaznik = () => {
                       autoComplete="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="bg-muted/50"
+                      className="bg-muted/50 placeholder:text-muted-foreground/45"
                     />
                   </div>
                 </div>
@@ -395,7 +426,7 @@ const Dotaznik = () => {
                   </span>
                 </label>
                 {errors.form && (
-                  <p className="text-sm text-destructive mb-2">Vyplňte prosím meno, platný e-mail a telefónne číslo.</p>
+                  <p className="text-sm text-destructive mb-2">Vyplňte prosím meno, priezvisko, platný e-mail a telefónne číslo.</p>
                 )}
                 {errors.gdpr && (
                   <p className="text-sm text-destructive mb-2">Pre pokračovanie je potrebný súhlas so spracovaním osobných údajov.</p>
