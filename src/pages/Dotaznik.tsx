@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronRight, Layout } from "lucide-react";
+
+const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL as string | undefined;
 
 const MAX_POINTS = 19;
 const QUESTION_COUNT = 4;
@@ -163,6 +166,7 @@ const Dotaznik = () => {
   const [phone, setPhone] = useState("");
   const [gdpr, setGdpr] = useState(false);
   const [errors, setErrors] = useState({ form: false, gdpr: false });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalPoints = Object.values(points).reduce((a, b) => a + b, 0);
 
@@ -200,14 +204,45 @@ const Dotaznik = () => {
     else if (step >= 2 && step <= 5) setStep((step - 1) as StepNum);
   };
 
-  const handleSubmitContact = () => {
+  const handleSubmitContact = async () => {
     const formValid = name.trim() && EMAIL_REGEX.test(email.trim()) && phone.trim().length >= 6;
     const gdprValid = gdpr;
     setErrors({ form: !formValid, gdpr: !gdprValid });
     if (!formValid || !gdprValid) return;
 
+    if (!WEBHOOK_URL) {
+      toast.error("Webhook nie je nakonfigurovaný. Skontrolujte .env.");
+      return;
+    }
+
     const cat = totalPoints <= 13 ? 2 : 3;
-    setResultCategory(cat);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          totalPoints,
+          resultCategory: cat,
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        setResultCategory(cat);
+        toast.success("Dáta boli odoslané. Zobrazujeme váš výsledok.");
+      } else {
+        toast.error("Odoslanie zlyhalo. Skúste to prosím znova.");
+      }
+    } catch {
+      toast.error("Chyba pri odosielaní. Skontrolujte internetové pripojenie.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const showResult = resultCategory !== null;
@@ -396,8 +431,9 @@ const Dotaznik = () => {
                     size="sm"
                     className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
                     onClick={handleSubmitContact}
+                    disabled={isSubmitting}
                   >
-                    Zobraziť výsledok <ChevronRight className="w-4 h-4 ml-1" />
+                    {isSubmitting ? "Odosielam…" : "Zobraziť výsledok"} <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
                 ) : (
                   <div className="w-[100px]" />
