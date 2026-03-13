@@ -530,17 +530,36 @@ const Dotaznik = () => {
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              {resultData.ctas.map((cta, i) =>
-                cta.href.startsWith("/") ? (
+              {resultData.ctas.map((cta, i) => {
+                if (cta.href.startsWith("/")) {
+                  return (
+                    <a
+                      key={i}
+                      href={cta.href}
+                      onClick={(e) => {
+                        if (cta.label === CTA_LEAD_LABEL && WEBHOOK_URL) {
+                          e.preventDefault();
+                          handleCtaClick(cta).then(() => navigate(cta.href));
+                        }
+                      }}
+                      className={cn(
+                        "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
+                        cta.primary
+                          ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90"
+                          : "bg-muted/50 border-border text-foreground hover:border-primary hover:bg-primary/5"
+                      )}
+                    >
+                      <span>{cta.label}</span>
+                      <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    </a>
+                  );
+                }
+                return (
                   <a
                     key={i}
                     href={cta.href}
-                    onClick={(e) => {
-                      if (cta.label === CTA_LEAD_LABEL && WEBHOOK_URL) {
-                        e.preventDefault();
-                        handleCtaClick(cta).then(() => navigate(cta.href));
-                      }
-                    }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={cn(
                       "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
                       cta.primary
@@ -551,25 +570,8 @@ const Dotaznik = () => {
                     <span>{cta.label}</span>
                     <ChevronRight className="w-4 h-4 flex-shrink-0" />
                   </a>
-                ) : (
-                <a
-                  key={i}
-                  href={cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
-                    cta.primary
-                      ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90"
-                      : "bg-muted/50 border-border text-foreground hover:border-primary hover:bg-primary/5"
-                  )}
-                >
-                  <span>{cta.label}</span>
-                  <ChevronRight className="w-4 h-4 flex-shrink-0" />
-                </a>
-                )
-              )}
-            </div>
+                );
+              })}
             </div>
           </div>
         )}

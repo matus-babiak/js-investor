@@ -21,7 +21,7 @@ import {
   Phone,
 } from "lucide-react";
 
-const Navrh1 = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <StickyNav />
@@ -124,7 +124,7 @@ const Navrh1 = () => {
   );
 };
 
-export default Navrh1;
+export default HomePage;
 
 function ChaosSection() {
   const { ref, isVisible } = useScrollAnimation();
