@@ -46,7 +46,7 @@ const Navrh1 = () => {
                   href="/dotaznik"
                   className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
                 >
-                  Navrhnúť ucelený systém
+                  Navrhnúť JS Wealth System™
                 </a>
                 <a
                   href="#ako-to-funguje"
