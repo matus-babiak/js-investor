@@ -8,7 +8,7 @@ import { ChevronRight, Layout } from "lucide-react";
 
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL as string | undefined;
 
-const CTA_LEAD_LABEL = "Navrhnúť ucelený systém";
+const CTA_LEAD_LABEL = "Naplánovať bezplatné stretnutie";
 
 const MAX_POINTS = 19;
 const QUESTION_COUNT = 4;
@@ -121,8 +121,8 @@ const RESULTS = [
       "Dohodnite si bezplatný hovor so špecialistom. Nie predajný call — konkrétna diagnostika vašej situácie a jasný ďalší krok.",
     ],
     ctas: [
-      { label: "Navrhnúť ucelený systém", href: "/dakujeme", primary: true },
-      { label: "Radšej sa najprv vzdelávať", href: "https://jsmentor.sk/herohero", primary: false },
+      { label: "Naplánovať bezplatné stretnutie", href: "/dakujeme", primary: true },
+      { label: "Chcem sa zatiaľ vzdelávať", href: "https://jsmentor.sk/herohero", primary: false },
     ],
   },
   {
@@ -137,7 +137,10 @@ const RESULTS = [
       "JS Wealth System™ nie je ďalší fond ani aplikácia. Je to komplexný systém budovania majetku postavený na štyroch pilieroch: ETF stratégie, investičná nehnuteľnosť, daňová optimalizácia a dlhodobá renta. Všetko prepojené, všetko viditeľné na jednom mieste.",
       "Prvý krok je bezplatný strategický hovor priamo s Ivanom. Nie konzultácia — diagnostika vášho majetku s konkrétnym výstupom. Bez záväzku.",
     ],
-    ctas: [{ label: "Navrhnúť ucelený systém", href: "/dakujeme", primary: true }],
+    ctas: [
+      { label: "Naplánovať bezplatné stretnutie", href: "/dakujeme", primary: true },
+      { label: "Chcem sa zatiaľ vzdelávať", href: "https://jsmentor.sk/herohero", primary: false },
+    ],
   },
 ];
 

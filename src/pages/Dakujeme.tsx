@@ -12,13 +12,13 @@ const Dakujeme = () => {
         <h1 className="font-serif text-2xl sm:text-3xl text-foreground leading-tight mb-4">
           Ďakujeme, že ste sa ozvali
         </h1>
-        <p className="text-base text-muted-foreground leading-relaxed mb-6">
-          Vaša odpoveď nám pomáha pripraviť sa na náš spoločný hovor. Berieme váš záujem o ucelený systém
-          seriózne — preto si váš čas neberieme zbytočnými formalitami.
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
+          <strong className="text-foreground">Ozveme sa vám najneskôr do 24 hodín</strong> na zadaný e-mail alebo telefón.
         </p>
         <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-          Ozveme sa vám čo najskôr na zadaný e-mail alebo telefón. Ak máte akútnu otázku, môžete nás
-          kedykoľvek kontaktovať priamo. Tešíme sa na rozhovor s vami.
+          Vaša odpoveď nám pomáha pripraviť sa na náš spoločný hovor. Berieme <strong className="text-foreground">váš záujem o ucelený systém seriózne</strong> —
+          preto si <strong className="text-foreground">váš čas neberieme zbytočnými formalitami</strong>. Ak máte akútnu otázku, môžete nás kedykoľvek kontaktovať
+          priamo. <strong className="text-foreground">Tešíme sa na rozhovor s vami.</strong>
         </p>
         <Button asChild variant="outline" className="rounded-full border-primary text-primary hover:bg-primary/10">
           <Link to="/">

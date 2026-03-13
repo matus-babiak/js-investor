@@ -19,6 +19,10 @@ import {
   FileText,
   Sparkles,
   Phone,
+  ShieldCheck,
+  Users,
+  Percent,
+  TrendingUp,
 } from "lucide-react";
 
 const HomePage = () => {
@@ -89,6 +93,9 @@ const HomePage = () => {
           />
         </section>
 
+        {/* Štatistiky - zelené taby */}
+        <StatsSection />
+
         {/* Úspešní ľudia - chaotické financie */}
         <ChaosSection />
 
@@ -103,9 +110,6 @@ const HomePage = () => {
 
         {/* Testimonials */}
         <TestimonialsSection />
-
-        {/* Štatistiky - zelené taby */}
-        <StatsSection />
 
         {/* Kto stojí za JS Investor */}
         <AboutSection />
@@ -197,7 +201,7 @@ function ChaosSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Navrhnúť ucelený systém
+            Navrhnúť JS Wealth System™
           </a>
         </div>
       </div>
@@ -282,7 +286,7 @@ function WealthMapSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Navrhnúť ucelený systém
+            Navrhnúť JS Wealth System™
           </a>
         </div>
       </div>
@@ -377,7 +381,7 @@ function ForWhomSection() {
           JS Wealth System™ <em className="text-primary">nie je pre každého.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14`}>
-          Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku. Pri práci využívame <strong className="text-foreground">DISC model</strong> na lepšie pochopenie vašich potrieb.
+          Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-10`}>
@@ -420,7 +424,7 @@ function ForWhomSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Navrhnúť ucelený systém
+            Navrhnúť JS Wealth System™
           </a>
         </div>
       </div>
@@ -499,19 +503,48 @@ function TestimonialsSection() {
 function StatsSection() {
   const { ref, isVisible } = useScrollAnimation();
   const stats = [
-    { value: "3M+", label: "Eur v správe klientov" },
-    { value: "NBS", label: "Licencovaný poradca SR" },
-    { value: "200+", label: "Aktívnych klientov" },
-    { value: "0 %", label: "Poplatok do 50 000 €" },
+    {
+      value: "3M+",
+      label: "Eur v správe klientov",
+      icon: TrendingUp,
+      sub: "Spravujeme s dôverou",
+    },
+    {
+      value: "NBS",
+      label: "Licencovaný poradca SR",
+      icon: ShieldCheck,
+      sub: "Pod dohľadom regulátora",
+    },
+    {
+      value: "200+",
+      label: "Aktívnych klientov",
+      icon: Users,
+      sub: "Rastúca komunita",
+    },
+    {
+      value: "0 %",
+      label: "Poplatok do 50 000 €",
+      icon: Percent,
+      sub: "Férový štart",
+    },
   ];
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-primary">
       <div ref={ref} className="content-width">
         <div className={`scroll-animate ${isVisible ? "visible" : ""} grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6`}>
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col items-center justify-center rounded-2xl bg-primary px-6 py-8 min-h-[120px] shadow-lg">
-              <span className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight text-center">{s.value}</span>
-              <p className="text-sm sm:text-base text-white mt-3 text-center font-sans">{s.label}</p>
+            <div
+              key={s.label}
+              className="group flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-8 min-h-[140px] shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <div className="mb-4 w-14 h-14 icon-pattern-bg-primary flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <s.icon className="w-7 h-7 text-primary-foreground -translate-x-0.5" aria-hidden />
+              </div>
+              <span className="text-2xl sm:text-3xl font-serif font-bold text-foreground leading-tight text-center">
+                {s.value}
+              </span>
+              <p className="text-sm sm:text-base text-foreground mt-2 text-center font-sans font-medium">{s.label}</p>
+              <p className="text-xs text-muted-foreground mt-1 text-center font-sans">{s.sub}</p>
             </div>
           ))}
         </div>
@@ -546,7 +579,7 @@ function AboutSection() {
                 href="/dotaznik"
                 className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
               >
-                Navrhnúť ucelený systém
+                Navrhnúť JS Wealth System™
               </a>
             </div>
           </div>
@@ -592,7 +625,7 @@ function GroupBenefitSection() {
             href="/dotaznik"
             className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
           >
-            Navrhnúť ucelený systém
+            Navrhnúť JS Wealth System™
           </a>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -622,9 +655,63 @@ function GuaranteeSection() {
         <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-10 text-center`}>
           <em className="text-primary">Skutočné partnerstvo</em> namiesto skrytých poplatkov.
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground text-center max-w-[800px] mx-auto mb-14`}>
+        <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground text-center max-w-[800px] mx-auto mb-10`}>
           Namiesto umelých sľubov o garantovaných výnosoch vám ponúkam <strong className="text-foreground">reálne a merateľné záväzky</strong>. Ako váš sprievodca budovaním majetku vám garantujem dva piliere, na ktorých bude pevne stáť naša dlhodobá spolupráca:
         </p>
+
+        {/* Porovnanie poplatkov */}
+        <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} mb-14`}>
+          <p className="text-center font-serif text-xl md:text-2xl text-muted-foreground mb-10">
+            Koľko reálne platíš za celú dobu investovania?
+          </p>
+          <div className="overflow-x-auto max-w-4xl mx-auto">
+            <table className="w-full min-w-[560px] text-left border-collapse">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="py-5 px-6 font-sans text-xs font-medium text-muted-foreground uppercase tracking-widest w-[150px]" aria-label="Typ poplatku"> </th>
+                  <th className="py-5 px-6 font-serif font-bold text-primary text-center text-base bg-primary/5 border-l-2 border-primary/30">JS Wealth System™</th>
+                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Investičné platformy</th>
+                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Banky</th>
+                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Poradcovia</th>
+                </tr>
+              </thead>
+              <tbody className="font-sans text-sm md:text-base">
+                <tr className="border-b border-border/80">
+                  <td className="py-5 px-6 text-muted-foreground font-medium">Manažérsky poplatok (ročne)</td>
+                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">
+                    <span className="block">do 50 000 € — 0,00 %</span>
+                    <span className="block">od 50 000 € — 0,49 %</span>
+                  </td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">1 %</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">2 %</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">1 %</td>
+                </tr>
+                <tr className="border-b border-border/80">
+                  <td className="py-5 px-6 text-muted-foreground font-medium">Manažérsky poplatok (v €)</td>
+                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">0 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">75 000 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">114 000 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">62 000 €</td>
+                </tr>
+                <tr className="border-b border-border/80">
+                  <td className="py-5 px-6 text-muted-foreground font-medium">Dane</td>
+                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">0 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">0 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">109 000 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">0 €</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-6 text-muted-foreground font-medium">Vstupný poplatok</td>
+                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">900 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="py-5 px-6 text-muted-foreground text-center">1 800 € a viac</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div className="flex flex-col gap-8 max-w-[720px] mx-auto">
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
             <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
@@ -667,12 +754,12 @@ function FinalCtaSection() {
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground max-w-[720px] mx-auto mb-10`}>
           Prestaňte na trhu experimentovať. Zarezervujte si <strong className="text-foreground">nezáväzný úvodný hovor</strong>, kde zhodnotíme vašu aktuálnu situáciu a otvorene si povieme, či je náš <strong className="text-foreground">JS Wealth System™</strong> pre vás tým správnym riešením.
         </p>
-        <a
-          href="/dotaznik"
-          className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg`}
-        >
-          Navrhnúť ucelený systém
-        </a>
+          <a
+            href="/dotaznik"
+            className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg`}
+          >
+            Navrhnúť JS Wealth System™
+          </a>
         <p className="text-base text-muted-foreground mt-6 max-w-[560px] mx-auto">
           Úvodný hovor je nezáväzný · Absolútna diskrétnosť · Pod dohľadom NBS
         </p>
