@@ -6,7 +6,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronRight, Layout } from "lucide-react";
 
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL as string | undefined;
-const WEBHOOK2_URL = import.meta.env.VITE_WEBHOOK2_URL as string | undefined;
 
 const CTA_LEAD_LABEL = "Navrhnúť ucelený systém";
 
@@ -248,35 +247,39 @@ const Dotaznik = () => {
     setErrors({ form: !formValid, gdpr: !gdprValid });
     if (!formValid || !gdprValid) return;
 
-    if (!WEBHOOK_URL) return;
-
     const cat = totalPoints <= 13 ? 2 : 3;
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
+      const response = await fetch("/api/ecomail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildLeadPayload(cat)),
+        body: JSON.stringify({
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+        }),
       });
-
-      if (response.ok) {
-        setResultCategory(cat);
+      if (!response.ok) {
+        // Ecomail zlyhalo – aj tak zobrazíme výsledok
       }
     } catch {
       // Bez hlášky
     } finally {
       setIsSubmitting(false);
     }
+
+    setResultCategory(cat);
   };
 
   const handleCtaClick = async (cta: { label: string; href: string }) => {
-    if (cta.label !== CTA_LEAD_LABEL || !WEBHOOK2_URL) return;
+    if (cta.label !== CTA_LEAD_LABEL || !WEBHOOK_URL) return;
     try {
-      await fetch(WEBHOOK2_URL, {
+      await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...buildLeadPayload(), source: "cta_navrhnut_system" }),
+        body: JSON.stringify(buildLeadPayload()),
       });
     } catch {
       // Bez hlášky
@@ -532,7 +535,7 @@ const Dotaznik = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => {
-                    if (cta.label === CTA_LEAD_LABEL && WEBHOOK2_URL) {
+                    if (cta.label === CTA_LEAD_LABEL && WEBHOOK_URL) {
                       e.preventDefault();
                       handleCtaClick(cta).then(() => window.open(cta.href, "_blank"));
                     }
