@@ -170,7 +170,7 @@
   }
 
   .content-width {
-    @apply max-w-[960px] mx-auto;
+    @apply max-w-[1140px] mx-auto;
   }
 
   .section-alt {
@@ -339,6 +339,19 @@
 /* Brand pattern shape with light green background */
 .icon-pattern-bg-primary-light {
   background-color: hsl(var(--primary) / 0.15);
+  -webkit-mask-image: url('./assets/js-brand-pattern.svg');
+  mask-image: url('./assets/js-brand-pattern.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Brand pattern shape with white fill (e.g. on green cards) */
+.icon-pattern-bg-white {
+  background-color: white;
   -webkit-mask-image: url('./assets/js-brand-pattern.svg');
   mask-image: url('./assets/js-brand-pattern.svg');
   -webkit-mask-size: contain;

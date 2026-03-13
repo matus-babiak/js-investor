@@ -32,7 +32,7 @@ const HomePage = () => {
       <main className="pt-24 md:pt-28">
         {/* Hero */}
         <section className="pt-[4em] section-padding relative overflow-hidden">
-          <div className="max-w-[960px] mx-auto w-full relative z-10">
+          <div className="max-w-[1140px] mx-auto w-full relative z-10">
             {/* Textová časť */}
             <div className="text-center mb-12 md:mb-16">
               <img src={logo} alt="JS Investor" className="hero-animate hero-animate-delay-1 h-[2.2rem] mx-auto mb-6" />
@@ -214,38 +214,42 @@ function WealthMapSection() {
   const pillars = [
     {
       num: "1",
+      icon: TrendingUp,
       title: "Inteligentné ETF stratégie",
       paragraphs: [
-        <>Vaše peniaze <strong className="text-foreground">neefektívne ležia v banke</strong> alebo v zbytočne <strong className="text-foreground">drahých podielových fondoch.</strong></>,
-        <>Inflácia ich potichu požiera a vy <strong className="text-foreground">prichádzate o obrovské výnosy</strong> kvôli vysokým poplatkom a emočným chybám na trhu.</>,
-        <>My vám vybudujeme stabilné globálne portfólio z nízkonákladových fondov. Nastavíme ho <strong className="text-foreground">presne podľa vášho rizika</strong> a cieľa pre <strong className="text-foreground">predvídateľný rast bez zbytočných poplatkov.</strong></>,
+        <>Vaše peniaze <strong className="text-primary-foreground">neefektívne ležia v banke</strong> alebo v zbytočne <strong className="text-primary-foreground">drahých podielových fondoch.</strong></>,
+        <>Inflácia ich potichu požiera a vy <strong className="text-primary-foreground">prichádzate o obrovské výnosy</strong> kvôli vysokým poplatkom a emočným chybám na trhu.</>,
+        <>My vám vybudujeme stabilné globálne portfólio z nízkonákladových fondov. Nastavíme ho <strong className="text-primary-foreground">presne podľa vášho rizika</strong> a cieľa pre <strong className="text-primary-foreground">predvídateľný rast bez zbytočných poplatkov.</strong></>,
       ],
     },
     {
       num: "2",
+      icon: Building2,
       title: "Investičné nehnuteľnosti a financovanie",
       paragraphs: [
-        <>Investičné nehnuteľnosti nakupujete len na základe <strong className="text-foreground">intuície, emócií</strong> alebo zdanlivo <strong className="text-foreground">„výhodnej ponuky“</strong> na trhu.</>,
-        <>Nákup „na základe pocitov“ vás môže dostať do <strong className="text-foreground">nevýhodnej hypotéky</strong> a roky vás <strong className="text-foreground">finančne vyčerpávať</strong> negatívnym cashflowom.</>,
-        <>Na stôl vám položíme presnú ROI kalkulačku s optimistickým aj stresovým scenárom. <strong className="text-foreground">Či sa byt oplatí kúpiť, rozhodneme spoločne.</strong> Čisto na základe exaktných čísiel.</>,
+        <>Investičné nehnuteľnosti nakupujete len na základe <strong className="text-primary-foreground">intuície, emócií</strong> alebo zdanlivo <strong className="text-primary-foreground">„výhodnej ponuky“</strong> na trhu.</>,
+        <>Nákup „na základe pocitov“ vás môže dostať do <strong className="text-primary-foreground">nevýhodnej hypotéky</strong> a roky vás <strong className="text-primary-foreground">finančne vyčerpávať</strong> negatívnym cashflowom.</>,
+        <>Na stôl vám položíme presnú ROI kalkulačku s optimistickým aj stresovým scenárom. <strong className="text-primary-foreground">Či sa byt oplatí kúpiť, rozhodneme spoločne.</strong> Čisto na základe exaktných čísiel.</>,
       ],
     },
     {
       num: "3",
+      icon: Calculator,
       title: "Daňová optimalizácia",
       paragraphs: [
-        <>Sústredíte sa len na to, koľko vaše <strong className="text-foreground">investície zarobia v hrubom.</strong></>,
-        <>Ignorovanie daní vedie k tomu, že pri výbere ziskov <strong className="text-foreground">necháte štátu tisíce eur z vášho ťažko vybudovaného majetku</strong> úplne zbytočne.</>,
-        <>Vaše portfólio od prvého dňa štruktúrujeme maximálne daňovo efektívne tak, aby ste <strong className="text-foreground">legálne a transparentne ochránili svoj čistý výnos.</strong></>,
+        <>Sústredíte sa len na to, koľko vaše <strong className="text-primary-foreground">investície zarobia v hrubom.</strong></>,
+        <>Ignorovanie daní vedie k tomu, že pri výbere ziskov <strong className="text-primary-foreground">necháte štátu tisíce eur z vášho ťažko vybudovaného majetku</strong> úplne zbytočne.</>,
+        <>Vaše portfólio od prvého dňa štruktúrujeme maximálne daňovo efektívne tak, aby ste <strong className="text-primary-foreground">legálne a transparentne ochránili svoj čistý výnos.</strong></>,
       ],
     },
     {
       num: "4",
+      icon: WalletIcon,
       title: "Renta a skutočná sloboda",
       paragraphs: [
-        <>Budujete si majetok, ale <strong className="text-foreground">chýba vám presný systém,</strong> ako a kedy si ho reálne začnete užívať.</>,
-        <>Bez bezpečnej „výstupnej stratégie" riskujete, že trhové výkyvy v nesprávny čas <strong className="text-foreground">ohrozia vašu celoživotnú snahu o finančnú nezávislosť.</strong></>,
-        <>V správny čas prestavíme vaše aktíva do rentového módu, aby vám <strong className="text-foreground">generovali stabilný pasívny príjem.</strong> V dobrých aj zlých rokoch.</>,
+        <>Budujete si majetok, ale <strong className="text-primary-foreground">chýba vám presný systém,</strong> ako a kedy si ho reálne začnete užívať.</>,
+        <>Bez bezpečnej „výstupnej stratégie" riskujete, že trhové výkyvy v nesprávny čas <strong className="text-primary-foreground">ohrozia vašu celoživotnú snahu o finančnú nezávislosť.</strong></>,
+        <>V správny čas prestavíme vaše aktíva do rentového módu, aby vám <strong className="text-primary-foreground">generovali stabilný pasívny príjem.</strong> V dobrých aj zlých rokoch.</>,
       ],
     },
   ];
@@ -267,13 +271,13 @@ function WealthMapSection() {
           {pillars.map((p, i) => (
             <div
               key={p.num}
-              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8`}
+              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-primary rounded-2xl p-8 text-primary-foreground`}
             >
-              <div className="w-14 h-14 icon-pattern-bg-primary flex items-center justify-center mb-4">
-                <span className="font-serif font-bold text-2xl text-primary-foreground -translate-x-0.5">{p.num}</span>
+              <div className="w-14 h-14 icon-pattern-bg-white flex items-center justify-center mb-4 flex-shrink-0">
+                <p.icon className="w-7 h-7 text-primary -translate-x-0.5" aria-hidden />
               </div>
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">{p.title}</h3>
-              <div className="space-y-3 text-lg text-muted-foreground">
+              <h3 className="font-serif text-2xl font-semibold text-primary-foreground mb-3">{p.title}</h3>
+              <div className="space-y-3 text-lg text-primary-foreground/90">
                 {p.paragraphs.map((para, j) => (
                   <p key={j}>{para}</p>
                 ))}
