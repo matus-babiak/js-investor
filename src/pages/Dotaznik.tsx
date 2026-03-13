@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -120,7 +121,7 @@ const RESULTS = [
       "Dohodnite si bezplatný hovor so špecialistom. Nie predajný call — konkrétna diagnostika vašej situácie a jasný ďalší krok.",
     ],
     ctas: [
-      { label: "Navrhnúť ucelený systém", href: "https://jsmentor.sk", primary: true },
+      { label: "Navrhnúť ucelený systém", href: "/dakujeme", primary: true },
       { label: "Radšej sa najprv vzdelávať", href: "https://jsmentor.sk/herohero", primary: false },
     ],
   },
@@ -136,7 +137,7 @@ const RESULTS = [
       "JS Wealth System™ nie je ďalší fond ani aplikácia. Je to komplexný systém budovania majetku postavený na štyroch pilieroch: ETF stratégie, investičná nehnuteľnosť, daňová optimalizácia a dlhodobá renta. Všetko prepojené, všetko viditeľné na jednom mieste.",
       "Prvý krok je bezplatný strategický hovor priamo s Ivanom. Nie konzultácia — diagnostika vášho majetku s konkrétnym výstupom. Bez záväzku.",
     ],
-    ctas: [{ label: "Navrhnúť ucelený systém", href: "https://www.jsinvestor.sk/chcem-investovat/", primary: true }],
+    ctas: [{ label: "Navrhnúť ucelený systém", href: "/dakujeme", primary: true }],
   },
 ];
 
@@ -286,6 +287,7 @@ const Dotaznik = () => {
     }
   };
 
+  const navigate = useNavigate();
   const showResult = resultCategory !== null;
   const resultData = resultCategory ? RESULTS[resultCategory - 1] : null;
   const isFormStep = step === 5;
@@ -528,18 +530,33 @@ const Dotaznik = () => {
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              {resultData.ctas.map((cta, i) => (
+              {resultData.ctas.map((cta, i) =>
+                cta.href.startsWith("/") ? (
+                  <a
+                    key={i}
+                    href={cta.href}
+                    onClick={(e) => {
+                      if (cta.label === CTA_LEAD_LABEL && WEBHOOK_URL) {
+                        e.preventDefault();
+                        handleCtaClick(cta).then(() => navigate(cta.href));
+                      }
+                    }}
+                    className={cn(
+                      "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
+                      cta.primary
+                        ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90"
+                        : "bg-muted/50 border-border text-foreground hover:border-primary hover:bg-primary/5"
+                    )}
+                  >
+                    <span>{cta.label}</span>
+                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                  </a>
+                ) : (
                 <a
                   key={i}
                   href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => {
-                    if (cta.label === CTA_LEAD_LABEL && WEBHOOK_URL) {
-                      e.preventDefault();
-                      handleCtaClick(cta).then(() => window.open(cta.href, "_blank"));
-                    }
-                  }}
                   className={cn(
                     "flex items-center justify-between gap-2 rounded-lg border-2 px-4 py-3 text-sm font-medium transition-all",
                     cta.primary
@@ -550,7 +567,9 @@ const Dotaznik = () => {
                   <span>{cta.label}</span>
                   <ChevronRight className="w-4 h-4 flex-shrink-0" />
                 </a>
-              ))}
+                )
+              )}
+            </div>
             </div>
           </div>
         )}
