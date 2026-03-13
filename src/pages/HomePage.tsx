@@ -33,13 +33,13 @@ const HomePage = () => {
             <div className="text-center mb-12 md:mb-16">
               <img src={logo} alt="JS Investor" className="hero-animate hero-animate-delay-1 h-[2.2rem] mx-auto mb-6" />
               <p className="hero-animate hero-animate-delay-1 text-base font-sans font-semibold tracking-widest uppercase text-primary mb-6">
-                Váš sprievodca budovaním majetku
+                Sprievodca investovaním pre ambicióznych ľudí
               </p>
               <h1 className="hero-animate hero-animate-delay-2 text-4xl md:text-5xl lg:text-[58px] font-serif font-bold text-foreground mb-12">
-                Zarábate dobre, ale vaše peniaze strácajú hodnotu, alebo nemajú správny smer? <em className="text-primary">Dajte im ucelený systém.</em>
+                Zarábate dobre, ale vaše peniaze strácajú hodnotu, alebo nemajú jasný smer? <em className="text-primary">Dajte im správny systém.</em>
               </h1>
               <blockquote className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground mb-10 max-w-[720px] mx-auto">
-                <strong className="text-foreground">Prestaňte sa báť o svoje peniaze.</strong> Získajte <strong className="text-foreground">stabilného partnera</strong>, ktorý je tu vždy pre vás a navrhne vám <strong className="text-foreground">komplexný systém budovania majetku</strong>. Vďaka nemu konečne získate absolútny prehľad o tom, kde je váš kapitál, ako bezpečne pracuje a kam smeruje.
+                Nechajte si navrhnúť <strong className="text-foreground">JS Wealth System™</strong>. Vďaka nemu získate pocit absolútneho bezpečia a istotu, že sú vaše financie nastavené správne a je o váš majetok odborne postarané.
               </blockquote>
               <div className="hero-animate hero-animate-delay-4 flex flex-wrap gap-4 items-center justify-center mb-10">
                 <a
