@@ -491,7 +491,7 @@ const Dotaznik = () => {
                     onClick={handleSubmitContact}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Odosielam…" : "Zobraziť výsledok"} <ChevronRight className="w-4 h-4 ml-1" />
+                    {isSubmitting ? "Vyhodnocujem…" : "Zobraziť výsledok"} <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
                 ) : (
                   <div className="w-[100px]" />
