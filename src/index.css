@@ -232,6 +232,12 @@
   box-shadow: 0 12px 24px -8px rgba(41, 97, 74, 0.15);
 }
 
+#recenzie .card-hover:hover,
+#benefity .card-hover:hover,
+#pre-koho .card-hover:hover {
+  border-color: transparent;
+}
+
 .card-hover-accent {
   transition: all 0.3s ease;
   border: 2px solid transparent;

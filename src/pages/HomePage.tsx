@@ -32,9 +32,9 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <StickyNav />
-      <main className="pt-20 md:pt-24">
+      <main className="pt-14 md:pt-24">
         {/* Hero */}
-        <section className="pt-6 md:pt-10 section-padding relative overflow-hidden">
+        <section className="pt-2 md:pt-8 section-padding relative overflow-hidden">
           <div className="max-w-[1140px] mx-auto w-full relative z-10">
             {/* Textová časť */}
             <div className="text-center mb-12 md:mb-16">
@@ -400,16 +400,16 @@ function ForWhomSection() {
     { key: "nie4", content: <>Hľadáte len <strong className="text-foreground">jednorazový nákup</strong> finančného produktu a nemáte záujem o dlhodobé plánovanie vašej budúcej renty.</> },
   ];
   return (
-    <section id="pre-koho" className="section-padding">
+    <section id="pre-koho" className="section-padding bg-primary">
       <div ref={ref} className="content-width">
-        <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-10 text-center`}>
-          JS Wealth System™ <em className="text-primary">nie je pre každého.</em>
+        <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-primary-foreground mb-10 text-center`}>
+          JS Wealth System™ <em className="text-primary-foreground/95">nie je pre každého.</em>
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground text-center max-w-[720px] mx-auto mb-14`}>
-          Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku.
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-primary-foreground/90 text-center max-w-[720px] mx-auto mb-14`}>
+          Pracujeme s <strong className="text-primary-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-4 md:p-8`}>
+          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover hover:border-transparent bg-card rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-bold text-primary text-center mb-6">JE PRE VÁS, AK:</h3>
             <ul className="space-y-4">
               {preVas.map((item) => (
@@ -422,7 +422,7 @@ function ForWhomSection() {
               ))}
             </ul>
           </div>
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover-accent bg-card rounded-2xl p-4 md:p-8`}>
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover hover:border-transparent card-hover-accent bg-card rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-bold text-red-600 text-center mb-6">NIE JE PRE VÁS, AK:</h3>
             <ul className="space-y-4">
               {niePreVas.map((item) => (
@@ -436,18 +436,18 @@ function ForWhomSection() {
             </ul>
           </div>
         </div>
-        <div className={`scroll-animate scroll-animate-delay-4 ${isVisible ? "visible" : ""} w-full mt-12 rounded-2xl p-4 md:p-10 bg-primary/15 text-center border border-primary/20`}>
-          <Quote className="w-12 h-12 text-primary/40 mb-4 mx-auto" />
-          <blockquote className="text-xl md:text-2xl text-foreground italic mb-6">
+        <div className={`scroll-animate scroll-animate-delay-4 ${isVisible ? "visible" : ""} w-full mt-12 rounded-2xl p-4 md:p-10 bg-primary-foreground/10 text-center border border-primary-foreground/20`}>
+          <Quote className="w-12 h-12 text-primary-foreground/30 mb-4 mx-auto" />
+          <blockquote className="text-xl md:text-2xl text-primary-foreground italic mb-6">
             „S Ivanom investujem preto, lebo viem, že moje peniaze sú v bezpečí. A viem, že mu môžem kedykoľvek zavolať."
           </blockquote>
-          <p className="font-serif font-semibold text-foreground text-xl">Matej Slovík</p>
-          <p className="text-lg text-muted-foreground">Klient JS Wealth System™</p>
+          <p className="font-serif font-semibold text-primary-foreground text-xl">Matej Slovík</p>
+          <p className="text-lg text-primary-foreground/80">Klient JS Wealth System™</p>
         </div>
         <div className="flex justify-center mt-10">
           <a
             href="/dotaznik"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
+            className="inline-block bg-primary-foreground text-primary font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg hover:bg-primary-foreground/95 transition-colors"
           >
             Navrhnúť JS Wealth System™
           </a>
@@ -498,7 +498,7 @@ function TestimonialsSection() {
           Čo hovoria klienti, <em className="text-primary font-bold">ktorí sa už rozhodli.</em>
         </h2>
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-xl md:text-2xl text-muted-foreground max-w-[700px] mx-auto mb-14`}>
-          Reálne skúsenosti ľudí, ktorí našli svojho <strong>sprievodcu budovaním majetku a získali pocit absolútneho bezpečia</strong> v každej trhovej situácii.
+          Reálne skúsenosti ľudí, ktorí našli svojho <strong className="text-foreground">sprievodcu budovaním majetku a získali pocit absolútneho bezpečia</strong> v každej trhovej situácii.
         </p>
         <div className="space-y-10 max-w-[800px] mx-auto mb-16">
           {real.map((t, i) => (
@@ -768,19 +768,19 @@ function AboutSection() {
   return (
     <section id="o-nas" className="section-padding">
       <div ref={ref} className="content-width">
-        <p className={`scroll-animate ${isVisible ? "visible" : ""} text-base font-sans font-semibold tracking-widest uppercase text-primary mb-4 text-center md:text-left`}>
-          Kto stojí za JS Investor
-        </p>
-        <h2 className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-10 text-center md:text-left`}>
-          Správa majetku u nás <em className="text-primary">nekončí pri otvorení investičného účtu.</em>
-        </h2>
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Ľavý stĺpec: text + tlačidlo */}
-          <div>
-            <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-10 text-left`}>
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+          {/* Ľavý stĺpec: preheadline + nadpis + text + tlačidlo */}
+          <div className="flex flex-col md:justify-center">
+            <p className={`scroll-animate ${isVisible ? "visible" : ""} text-base font-sans font-semibold tracking-widest uppercase text-primary mb-2 text-center md:text-left`}>
+              Kto stojí za JS Investor
+            </p>
+            <h2 className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-5 text-center md:text-left`}>
+              Správa majetku u nás <em className="text-primary">nekončí pri otvorení investičného účtu.</em>
+            </h2>
+            <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-5 text-left`}>
               Som tu pre vás, aby ste sa o svoje peniaze <strong className="text-foreground">už nikdy nemuseli báť</strong>. Aby ste získali <strong className="text-foreground">sprievodcu budovaním majetku</strong>, ktorému môžete <strong className="text-foreground">s dôverou kedykoľvek zavolať</strong>. Keď sa vám na účte naakumuluje mimoriadnych 20 000 €, keď budete prepočítavať kúpu investičného bytu, alebo keď trhy klesnú a všade naokolo zavládne panika.
             </p>
-            <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-10 text-left`}>
+            <p className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} text-[15px] md:text-lg text-muted-foreground mb-6 text-left`}>
               <strong className="text-foreground">Toto je moja skutočná práca.</strong> Nepredávať vám finančné produkty. Byť vaším <strong className="text-foreground">stabilným partnerom</strong> pri budovaní majetku <strong className="text-foreground">na nasledujúce desaťročia</strong>.
             </p>
             <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""}`}>
@@ -792,14 +792,16 @@ function AboutSection() {
               </a>
             </div>
           </div>
-          {/* Pravý stĺpec: obrázok + meno */}
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} flex flex-col items-center`}>
-            <img
-              src={ivanJasikPhoto}
-              alt="Ivan Jašík - JS Investor"
-              className="rounded-2xl shadow-lg w-full max-w-[280px] sm:max-w-[320px] h-auto object-cover mb-6"
-            />
-            <div className="text-center">
+          {/* Pravý stĺpec: fotka + meno + popis */}
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} flex flex-col min-h-0 items-center`}>
+            <div className="flex-1 min-h-[280px] md:min-h-0 w-[96%] max-w-[480px] rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src={ivanJasikPhoto}
+                alt="Ivan Jašík - JS Investor"
+                className="w-full h-full object-cover object-[35%_50%]"
+              />
+            </div>
+            <div className="mt-4 text-center w-full">
               <p className="font-serif text-xl font-bold text-foreground">Ivan Jašík</p>
               <p className="text-base text-muted-foreground">Váš sprievodca budovaním majetku</p>
             </div>
@@ -818,22 +820,22 @@ function GroupBenefitSection() {
     { icon: Phone, title: "Priamy kontakt v kríze", text: <>Keď trhy klesajú a všade naokolo kričia katastrofy. Dostanete odo mňa <strong className="text-foreground">jasnú správu</strong>: čo presne robiť, čo nerobiť a prečo zachovať chladnú hlavu.</> },
   ];
   return (
-    <section id="benefity" className="section-padding section-alt">
+    <section id="benefity" className="section-padding bg-primary">
       <div ref={ref} className="content-width">
-        <p className={`scroll-animate ${isVisible ? "visible" : ""} text-base font-sans font-semibold tracking-widest uppercase text-primary mb-4 text-center`}>
+        <p className={`scroll-animate ${isVisible ? "visible" : ""} text-base font-sans font-semibold tracking-widest uppercase text-primary-foreground/90 mb-4 text-center`}>
           Exkluzívny benefit
         </p>
-        <h2 className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-10 text-center`}>
-          Vstúpite do uzavretej skupiny <em className="text-primary">JS Investorov.</em>
+        <h2 className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-primary-foreground mb-10 text-center`}>
+          Vstúpite do uzavretej skupiny <em className="text-primary-foreground/95">JS Investorov.</em>
         </h2>
-        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-lg md:text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-10`}>
-          Každý klient s JS Wealth System™ automaticky získava prístup do našej <strong className="text-foreground">súkromnej komunity</strong>. Je to priestor, kde pravidelne zdieľame hĺbkové analýzy trhov, PDF reporty a investičné príležitosti, ktoré <strong className="text-foreground">bežný klient banky nikdy neuvidí</strong>.
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-lg md:text-xl text-primary-foreground/90 text-center max-w-[720px] mx-auto mb-10`}>
+          Každý klient s JS Wealth System™ automaticky získava prístup do našej <strong className="text-primary-foreground">súkromnej komunity</strong>. Je to priestor, kde pravidelne zdieľame hĺbkové analýzy trhov, PDF reporty a investičné príležitosti, ktoré <strong className="text-primary-foreground">bežný klient banky nikdy neuvidí</strong>.
         </p>
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           {benefits.map((b, i) => (
             <div
               key={b.title}
-              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-4 md:p-6`}
+              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover hover:border-transparent bg-card rounded-2xl p-4 md:p-6`}
             >
               <div className="w-14 h-14 rounded-xl icon-pattern-bg-primary flex items-center justify-center mb-5 -translate-x-1">
                 <b.icon className="w-7 h-7 text-primary-foreground" />
@@ -846,7 +848,7 @@ function GroupBenefitSection() {
         <div className="flex justify-center">
           <a
             href="/dotaznik"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
+            className="inline-block bg-primary-foreground text-primary font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg hover:bg-primary-foreground/95 transition-colors"
           >
             Navrhnúť JS Wealth System™
           </a>
@@ -887,7 +889,7 @@ function GuaranteeSection() {
                 <tr className="border-b border-border bg-muted/40">
                   <th className="p-4 md:py-5 md:px-6 font-sans text-sm md:text-base font-bold text-muted-foreground uppercase tracking-widest" aria-label="Typ poplatku"> </th>
                   <th className="p-4 md:py-5 md:px-6 font-serif font-bold text-primary text-center text-sm md:text-base bg-primary/10 border-l border-border">JS Wealth System™</th>
-                  <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base whitespace-nowrap">Investičné platformy</th>
+                  <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Investičné platformy</th>
                   <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Banky</th>
                   <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Poradcovia</th>
                 </tr>
