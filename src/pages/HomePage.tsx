@@ -32,7 +32,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <StickyNav />
-      <main className="pt-14 md:pt-24">
+      <main className="heading-line pt-14 md:pt-24">
         {/* Hero */}
         <section className="pt-2 md:pt-8 section-padding relative overflow-hidden">
           <div className="max-w-[1140px] mx-auto w-full relative z-10">
@@ -946,6 +946,14 @@ function GuaranteeSection() {
               <p>Garantujem vám, že na dôležité finančné rozhodnutia <strong className="text-foreground">už nikdy nebudete sami</strong>. Moja štandardná konzultácia stojí 250 €/hod., no vy ako klient JS Wealth System™ máte moju podporu <strong className="text-foreground">kedykoľvek k dispozícii</strong>.</p>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <a
+            href="/dotaznik"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
+          >
+            Navrhnúť JS Wealth System™
+          </a>
         </div>
       </div>
     </section>
