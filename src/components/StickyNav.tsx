@@ -4,10 +4,10 @@ import logo from "@/assets/js-investor-logo.png";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Chaos vo financiách", href: "#problem" },
-  { label: "Systém", href: "#ako-to-funguje" },
+  { label: "Prečo to nefunguje", href: "#problem" },
+  { label: "Ako to riešime", href: "#ako-to-funguje" },
   { label: "Pre koho", href: "#pre-koho" },
-  { label: "Kto sme", href: "#o-nas" },
+  { label: "Recenzie", href: "#recenzie" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

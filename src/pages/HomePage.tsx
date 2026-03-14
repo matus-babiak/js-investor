@@ -29,9 +29,9 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <StickyNav />
-      <main className="pt-24 md:pt-28">
+      <main className="pt-20 md:pt-24">
         {/* Hero */}
-        <section className="pt-[4em] section-padding relative overflow-hidden">
+        <section className="pt-6 md:pt-10 section-padding relative overflow-hidden">
           <div className="max-w-[1140px] mx-auto w-full relative z-10">
             {/* Textová časť */}
             <div className="text-center mb-12 md:mb-16">
@@ -62,21 +62,21 @@ const HomePage = () => {
               <ul className="hero-animate hero-animate-delay-3 flex flex-wrap items-center justify-center gap-8 md:gap-12 text-base font-sans font-medium text-foreground">
                 <li className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
-                  Komplexná majetková stratégia
+                  Jasný majetkový <strong>plán na mieru</strong>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
-                  Všetko v jednej aplikácii
+                  Prehľadné výsledky <strong>na jednom mieste</strong>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
-                  Istota a dlhodobé partnerstvo
+                  Sprievodca kedykoľvek <strong>k dispozícii</strong>
                 </li>
               </ul>
             </div>
 
             {/* Video */}
-            <div className="hero-animate hero-animate-delay-4 rounded-2xl overflow-hidden aspect-video bg-black shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_24px_64px_-12px_rgba(0,0,0,0.28),0_0_0_1px_rgba(0,0,0,0.1)]">
+            <div className="hero-animate hero-animate-delay-4 w-[85%] max-w-[969px] mx-auto rounded-2xl overflow-hidden aspect-video bg-black shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_24px_64px_-12px_rgba(0,0,0,0.28),0_0_0_1px_rgba(0,0,0,0.1)]">
               <iframe
                 src="https://player.vimeo.com/video/1145809910?autoplay=0&title=0&portrait=0&byline=0"
                 title="Vimeo video"
@@ -95,6 +95,9 @@ const HomePage = () => {
 
         {/* Štatistiky - zelené taby */}
         <StatsSection />
+
+        {/* Výsledky klientov */}
+        <ClientResultsSection />
 
         {/* Úspešní ľudia - chaotické financie */}
         <ChaosSection />
@@ -504,51 +507,115 @@ function TestimonialsSection() {
   );
 }
 
+const CLIENT_RESULTS = [
+  { name: "Samuel", role: "Štátny zamestnanec", investment: "Investuje pravidelne | 3 roky", zisk: "18 427 €", pct: "+50,02 %" },
+  { name: "Lukáš", role: "živnostník", investment: "Investuje pravidelne | 2 roky", zisk: "1 905 €", pct: "+35,96 %" },
+  { name: "Braňo", role: "zamestnanie", investment: "Investuje pravidelne | 7 mesiacov", zisk: "1 248 €", pct: "+13,57 %" },
+  { name: "Andrej", role: "podnikateľ", investment: "Investícia: 50 000 € | 2 roky", zisk: "20 743 €", pct: "+43,27 %" },
+  { name: "Kristián", role: "zamestnanie", investment: "Investuje mesačne 300 € | 4 roky", zisk: "8 870 €", pct: "+41,26 %" },
+  { name: "Peter", role: "podnikateľ", investment: "Za 3 roky postupne vložil 119 000 €", zisk: "59 898 €", pct: "+51,15 %" },
+];
+
+function ClientResultsSection() {
+  const { ref, isVisible } = useScrollAnimation();
+  // Hodnota účtu (výnosy) – čiara mierne nad vkladmi, s vykyvmi
+  const chartPaths = [
+    "M 0 48 L 25 44 L 50 42 L 58 46 L 75 36 L 90 34 L 105 32 L 118 30 L 135 28 L 145 26 L 160 28 L 175 24 L 200 22",
+    "M 0 52 L 20 48 L 40 46 L 55 50 L 70 44 L 82 48 L 100 40 L 115 38 L 130 44 L 145 36 L 160 34 L 180 30 L 200 28",
+    "M 0 56 L 30 52 L 60 48 L 90 44 L 120 40 L 150 36 L 180 32 L 200 28",
+    "M 0 46 L 25 42 L 50 40 L 65 44 L 85 36 L 105 34 L 125 40 L 145 32 L 165 30 L 185 26 L 200 24",
+    "M 0 54 L 35 50 L 70 46 L 95 50 L 110 44 L 130 38 L 150 34 L 165 40 L 185 32 L 200 30",
+    "M 0 50 L 30 44 L 60 40 L 85 36 L 105 40 L 130 34 L 155 30 L 178 34 L 200 28",
+  ];
+  // Čisté vklady – oblasť hneď pod výnosmi (menší rozdiel)
+  const areaPaths = [
+    "M 0 58 L 50 54 L 100 50 L 150 46 L 200 42 L 200 80 L 0 80 Z",
+    "M 0 60 L 50 56 L 100 52 L 150 48 L 200 44 L 200 80 L 0 80 Z",
+    "M 0 62 L 70 58 L 140 54 L 200 50 L 200 80 L 0 80 Z",
+    "M 0 56 L 50 52 L 100 48 L 150 44 L 200 40 L 200 80 L 0 80 Z",
+    "M 0 62 L 65 56 L 130 50 L 200 46 L 200 80 L 0 80 Z",
+    "M 0 58 L 60 52 L 120 46 L 200 42 L 200 80 L 0 80 Z",
+  ];
+  return (
+    <section id="vysledky-klientov" className="section-padding bg-muted/30">
+      <div ref={ref} className="content-width">
+        <h2 className="text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-4 text-center">
+          <em className="text-primary">Výsledky</em> našich klientov
+        </h2>
+        <p className="text-lg text-muted-foreground text-center max-w-[640px] mx-auto mb-12">
+          Reálne príbehy a čísla z praxe.
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {CLIENT_RESULTS.map((c, i) => (
+            <div
+              key={c.name}
+              className="bg-card rounded-2xl p-6 border border-border shadow-sm flex flex-col"
+            >
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-9 h-9 icon-pattern-bg-primary flex items-center justify-center flex-shrink-0">
+                  <Check className="w-4 h-4 text-primary-foreground -translate-x-0.5" aria-hidden />
+                </div>
+                <div>
+                  <p className="font-serif font-semibold text-foreground text-lg">{c.name}</p>
+                  <p className="text-base text-muted-foreground">{c.role}</p>
+                </div>
+              </div>
+              <p className="text-base text-muted-foreground mb-4 text-center">{c.investment}</p>
+              <p className="text-2xl font-serif font-extrabold text-primary text-center mb-4">
+                Zisk: {c.zisk} ({c.pct})
+              </p>
+              <div className="mt-auto h-[100px] w-full rounded-lg overflow-hidden bg-muted/50">
+                <svg viewBox="0 0 200 80" className="w-full h-full" preserveAspectRatio="none" aria-hidden>
+                  <defs>
+                    <linearGradient id={`area-${i}`} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d={areaPaths[i]} fill={`url(#area-${i})`} />
+                  <path d={chartPaths[i]} fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-12">
+          <a
+            href="/dotaznik"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg hover:bg-primary/90 transition-colors"
+          >
+            Získať rovnaké výsledky
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function StatsSection() {
   const { ref, isVisible } = useScrollAnimation();
   const stats = [
-    {
-      value: "3M+",
-      label: "Eur v správe klientov",
-      icon: TrendingUp,
-      sub: "Spravujeme s dôverou",
-    },
-    {
-      value: "NBS",
-      label: "Licencovaný poradca SR",
-      icon: ShieldCheck,
-      sub: "Pod dohľadom regulátora",
-    },
-    {
-      value: "200+",
-      label: "Aktívnych klientov",
-      icon: Users,
-      sub: "Rastúca komunita",
-    },
-    {
-      value: "0 %",
-      label: "Poplatok do 50 000 €",
-      icon: Percent,
-      sub: "Férový štart",
-    },
+    { value: "3 044 000 €", label: "v starostlivosti", icon: WalletIcon },
+    { value: "7+ rokov", label: "skúsenosti", icon: Clock },
+    { value: "531", label: "klientov", icon: Users },
+    { value: "NBS", label: "Licencovaný subjekt", icon: ShieldCheck },
   ];
   return (
-    <section className="section-padding bg-primary">
+    <section className="py-10 md:py-14 px-6 bg-primary">
       <div ref={ref} className="content-width">
-        <div className={`scroll-animate ${isVisible ? "visible" : ""} grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6`}>
+        <div className={`scroll-animate ${isVisible ? "visible" : ""} grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12`}>
           {stats.map((s) => (
             <div
               key={s.label}
-              className="group flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-8 min-h-[140px] shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+              className="flex flex-col items-center justify-center py-3"
             >
-              <div className="mb-4 w-14 h-14 icon-pattern-bg-primary flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <s.icon className="w-7 h-7 text-primary-foreground -translate-x-0.5" aria-hidden />
+              <div className="mb-7 w-14 h-14 icon-pattern-bg-white flex items-center justify-center flex-shrink-0">
+                <s.icon className="w-7 h-7 text-primary -translate-x-0.5" aria-hidden />
               </div>
-              <span className="text-2xl sm:text-3xl font-serif font-bold text-foreground leading-tight text-center">
+              <span className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight text-center">
                 {s.value}
               </span>
-              <p className="text-sm sm:text-base text-foreground mt-2 text-center font-sans font-medium">{s.label}</p>
-              <p className="text-xs text-muted-foreground mt-1 text-center font-sans">{s.sub}</p>
+              <p className="text-base sm:text-lg text-white/95 mt-1 text-center font-sans">{s.label}</p>
             </div>
           ))}
         </div>
@@ -664,52 +731,59 @@ function GuaranteeSection() {
         </p>
 
         {/* Porovnanie poplatkov */}
-        <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} mb-14`}>
+        <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} mb-14 w-full`}>
           <p className="text-center font-serif text-xl md:text-2xl text-muted-foreground mb-10">
             Koľko reálne platíš za celú dobu investovania?
           </p>
-          <div className="overflow-x-auto max-w-4xl mx-auto">
-            <table className="w-full min-w-[560px] text-left border-collapse">
+          <div className="overflow-x-auto lg:overflow-x-visible rounded-2xl border border-border bg-card shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08),0_8px_16px_-8px_rgba(0,0,0,0.04)]">
+            <table className="w-full min-w-[560px] lg:min-w-0 text-left border-collapse table-fixed">
+              <colgroup>
+                <col className="w-[22%] lg:w-[22%]" />
+                <col className="w-[25%] lg:w-[25%]" />
+                <col className="w-[18%] lg:w-[18%]" />
+                <col className="w-[17.5%] lg:w-[17.5%]" />
+                <col className="w-[17.5%] lg:w-[17.5%]" />
+              </colgroup>
               <thead>
-                <tr className="border-b border-border">
-                  <th className="py-5 px-6 font-sans text-xs font-medium text-muted-foreground uppercase tracking-widest w-[150px]" aria-label="Typ poplatku"> </th>
-                  <th className="py-5 px-6 font-serif font-bold text-primary text-center text-base bg-primary/5 border-l-2 border-primary/30">JS Wealth System™</th>
-                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Investičné platformy</th>
-                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Banky</th>
-                  <th className="py-5 px-6 font-sans font-bold text-foreground text-center text-sm">Poradcovia</th>
+                <tr className="border-b border-border bg-muted/40">
+                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans text-sm md:text-base font-bold text-muted-foreground uppercase tracking-widest" aria-label="Typ poplatku"> </th>
+                  <th className="py-4 px-5 md:py-5 md:px-6 font-serif font-bold text-primary text-center text-sm md:text-base bg-primary/10 border-l border-border">JS Wealth System™</th>
+                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base whitespace-nowrap">Investičné platformy</th>
+                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Banky</th>
+                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Poradcovia</th>
                 </tr>
               </thead>
-              <tbody className="font-sans text-sm md:text-base">
-                <tr className="border-b border-border/80">
-                  <td className="py-5 px-6 text-muted-foreground font-medium">Manažérsky poplatok (ročne)</td>
-                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">
+              <tbody className="font-sans text-sm md:text-base bg-card">
+                <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (ročne)</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">
                     <span className="block">do 50 000 € — 0,00 %</span>
                     <span className="block">od 50 000 € — 0,49 %</span>
                   </td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">1 %</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">2 %</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">1 %</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">2 %</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
                 </tr>
-                <tr className="border-b border-border/80">
-                  <td className="py-5 px-6 text-muted-foreground font-medium">Manažérsky poplatok (v €)</td>
-                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">0 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">75 000 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">114 000 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">62 000 €</td>
+                <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (v €)</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">75 000 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">114 000 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">62 000 €</td>
                 </tr>
-                <tr className="border-b border-border/80">
-                  <td className="py-5 px-6 text-muted-foreground font-medium">Dane</td>
-                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">0 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">0 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">109 000 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">0 €</td>
+                <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Dane</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">109 000 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
                 </tr>
-                <tr>
-                  <td className="py-5 px-6 text-muted-foreground font-medium">Vstupný poplatok</td>
-                  <td className="py-5 px-6 bg-primary/5 text-primary font-semibold text-center border-l-2 border-primary/30">900 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">0 až 1 800 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">0 až 1 800 €</td>
-                  <td className="py-5 px-6 text-muted-foreground text-center">1 800 € a viac</td>
+                <tr className="hover:bg-muted/20 transition-colors">
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Vstupný poplatok</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">900 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 800 € a viac</td>
                 </tr>
               </tbody>
             </table>
@@ -717,20 +791,6 @@ function GuaranteeSection() {
         </div>
 
         <div className="flex flex-col gap-8 max-w-[720px] mx-auto">
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
-            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
-              <Calculator className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">Transparentnosť a partnerstvo</h3>
-            <p className="text-lg font-sans font-semibold text-foreground mb-3">Férové poplatky (0 % do 50 000 €)</p>
-            <div className="text-lg text-muted-foreground space-y-4">
-              <p>Väčšina bánk si účtuje vysoké vstupné a správcovské poplatky (často okolo 2 % ročne) bez ohľadu na to, či vôbec zarábate. Môj model je postavený na <strong className="text-foreground">reálnom raste a férovej matematike</strong>:</p>
-              <p><strong className="text-foreground">Do výšky majetku 50 000 €:</strong> Neplatíte absolútne žiadny poplatok za správu (0 %). Moja odmena pochádza zo spoluprác nad rámec spravovaného majetku, takže vaše peniaze netrpia zbytočnými zrážkami. Chcem, aby váš majetok v začiatkoch naberal na hodnote čo najrýchlejšie a naša spolupráca stála na absolútnej transparentnosti.</p>
-              <p><strong className="text-foreground">Od 50 000 € do 100 000 €:</strong> Aplikujeme transparentný, zlomkový poplatok len 0,27 % ročne.</p>
-              <p><strong className="text-foreground">Nad 100 000 €:</strong> Poplatok je nastavený na minimálnych 0,49 % ročne.</p>
-              <p><strong className="text-foreground">Žiadne skryté podmienky a cenníky malým písmom.</strong> Zarábam férovo až vtedy, keď váš majetok prekoná úvodnú hranicu a <strong className="text-foreground">reálne rastieme spoločne</strong>.</p>
-            </div>
-          </div>
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
             <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
               <Phone className="w-7 h-7 text-primary" />
