@@ -1,8 +1,10 @@
+import { useRef, useState, useCallback, useEffect } from "react";
 import StickyNav from "@/components/StickyNav";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import brandPattern from "@/assets/js-brand-pattern.svg";
 import logo from "@/assets/js-investor-logo.png";
+import ivanJasikPhoto from "@/assets/ivan-jasik.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
   Compass,
@@ -41,7 +43,7 @@ const HomePage = () => {
                 Sprievodca investovaním pre ambicióznych ľudí
               </p>
               <h1 className="hero-animate hero-animate-delay-2 text-4xl md:text-5xl lg:text-[58px] font-serif font-bold text-foreground mb-12">
-                Zarábate dobre, ale vaše peniaze strácajú hodnotu, alebo nemajú jasný smer? <em className="text-primary">Dajte im správny systém.</em>
+                Zarábate dobre, ale vaše peniaze strácajú hodnotu, alebo nemajú jasný smer? <span className="md:block"><em className="text-primary">Dajte im správny systém.</em></span>
               </h1>
               <blockquote className="hero-animate hero-animate-delay-3 text-xl font-sans text-muted-foreground mb-10 max-w-[720px] mx-auto">
                 Nechajte si navrhnúť <strong className="text-foreground">JS Wealth System™</strong>. Vďaka nemu získate pocit absolútneho bezpečia a istotu, že sú vaše financie nastavené správne a je o váš majetok odborne postarané.
@@ -60,7 +62,7 @@ const HomePage = () => {
                   Ako to funguje →
                 </a>
               </div>
-              <ul className="hero-animate hero-animate-delay-3 flex flex-wrap items-center justify-center gap-8 md:gap-12 text-base font-sans font-medium text-foreground">
+              <ul className="hero-animate hero-animate-delay-3 flex flex-wrap items-center justify-center gap-3 md:gap-8 lg:gap-12 text-base font-sans font-medium text-foreground">
                 <li className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
                   Jasný majetkový <strong>plán na mieru</strong>
@@ -77,7 +79,7 @@ const HomePage = () => {
             </div>
 
             {/* Video */}
-            <div className="hero-animate hero-animate-delay-4 w-[85%] max-w-[969px] mx-auto rounded-2xl overflow-hidden aspect-video bg-black shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_24px_64px_-12px_rgba(0,0,0,0.28),0_0_0_1px_rgba(0,0,0,0.1)]">
+            <div className="hero-animate hero-animate-delay-4 w-full md:w-[85%] max-w-[969px] mx-auto rounded-2xl overflow-hidden aspect-video bg-black shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_24px_64px_-12px_rgba(0,0,0,0.28),0_0_0_1px_rgba(0,0,0,0.1)]">
               <iframe
                 src="https://player.vimeo.com/video/1145809910?autoplay=0&title=0&portrait=0&byline=0"
                 title="Vimeo video"
@@ -202,7 +204,7 @@ function ChaosSection() {
           {problems.map((p, i) => (
             <div
               key={p.title}
-              className={`scroll-animate scroll-animate-delay-${i + 1} ${isVisible ? "visible" : ""} card-hover-accent bg-card-alt rounded-2xl p-8 shadow-sm`}
+              className={`scroll-animate scroll-animate-delay-${i + 1} ${isVisible ? "visible" : ""} card-hover-accent bg-card-alt rounded-2xl p-4 md:p-6 shadow-sm`}
             >
               <div className="w-12 h-12 rounded-xl icon-pattern-bg-accent flex items-center justify-center mb-5">
                 <p.icon className="w-6 h-6 text-accent -translate-x-0.5" />
@@ -290,7 +292,7 @@ function WealthMapSection() {
           {pillars.map((p, i) => (
             <div
               key={p.num}
-              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-primary rounded-2xl p-8 text-primary-foreground`}
+              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-primary rounded-2xl p-4 md:p-8 text-primary-foreground`}
             >
               <div className="w-14 h-14 icon-pattern-bg-white flex items-center justify-center mb-4 flex-shrink-0">
                 <p.icon className="w-7 h-7 text-primary -translate-x-0.5" aria-hidden />
@@ -341,7 +343,7 @@ function BeforeAfterSection() {
           Už na svoje financie nemusíte byť sami. Získajte <em className="text-primary">pocit absolútneho bezpečia.</em>
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} card-hover-accent bg-card-alt rounded-2xl p-10`}>
+          <div className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} card-hover-accent bg-card-alt rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-semibold text-red-600 text-center mb-6">PRED <span className="font-normal opacity-90">(Bez jasného systému)</span></h3>
             <ul className="space-y-4">
               {pred.map((item) => {
@@ -359,7 +361,7 @@ function BeforeAfterSection() {
               })}
             </ul>
           </div>
-          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card-alt rounded-2xl p-10`}>
+          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card-alt rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-semibold text-primary text-center mb-6">PO <span className="font-normal opacity-90">(S JS Wealth System™)</span></h3>
             <ul className="space-y-4">
               {po.map((item) => {
@@ -407,7 +409,7 @@ function ForWhomSection() {
           Pracujeme s <strong className="text-foreground">ľuďmi, pre ktorých je čas najdrahšia komodita</strong> a ich peniaze si zaslúžia sprievodcu budovaním majetku.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-10`}>
+          <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-bold text-primary text-center mb-6">JE PRE VÁS, AK:</h3>
             <ul className="space-y-4">
               {preVas.map((item) => (
@@ -420,7 +422,7 @@ function ForWhomSection() {
               ))}
             </ul>
           </div>
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover-accent bg-card rounded-2xl p-10`}>
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover-accent bg-card rounded-2xl p-4 md:p-8`}>
             <h3 className="font-serif text-2xl font-bold text-red-600 text-center mb-6">NIE JE PRE VÁS, AK:</h3>
             <ul className="space-y-4">
               {niePreVas.map((item) => (
@@ -434,7 +436,7 @@ function ForWhomSection() {
             </ul>
           </div>
         </div>
-        <div className={`scroll-animate scroll-animate-delay-4 ${isVisible ? "visible" : ""} w-full mt-12 rounded-2xl p-10 bg-primary/15 text-center border border-primary/20`}>
+        <div className={`scroll-animate scroll-animate-delay-4 ${isVisible ? "visible" : ""} w-full mt-12 rounded-2xl p-4 md:p-10 bg-primary/15 text-center border border-primary/20`}>
           <Quote className="w-12 h-12 text-primary/40 mb-4 mx-auto" />
           <blockquote className="text-xl md:text-2xl text-foreground italic mb-6">
             „S Ivanom investujem preto, lebo viem, že moje peniaze sú v bezpečí. A viem, že mu môžem kedykoľvek zavolať."
@@ -502,7 +504,7 @@ function TestimonialsSection() {
           {real.map((t, i) => (
             <div
               key={t.name}
-              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card-alt rounded-3xl p-10 md:p-12 shadow-sm relative text-left flex flex-col sm:flex-row gap-6 sm:gap-8 items-start`}
+              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card-alt rounded-3xl p-4 md:p-8 lg:p-10 shadow-sm relative text-left flex flex-col sm:flex-row gap-6 sm:gap-8 items-start`}
             >
               <Quote className="w-12 h-12 text-primary/20 absolute top-8 right-8" aria-hidden />
               {/* Maska v tvare JS patternu: teraz len svetlý pattern (bg). Keď pridáte do položky real pole "image" s cestou k fotke, fotka sa zobrazí orezaná do tvaru patternu. */}
@@ -540,6 +542,81 @@ const CLIENT_RESULTS = [
 
 function ClientResultsSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const chartLineRefs = useRef<(SVGPathElement | null)[]>([]);
+  const hasChartAnimated = useRef(false);
+  const [chartLinesRevealed, setChartLinesRevealed] = useState(false);
+  const chartsContainerRef = useRef<HTMLDivElement>(null);
+  const [chartsInView, setChartsInView] = useState(false);
+  const [scrollState, setScrollState] = useState({ leftRatio: 0, thumbRatio: 1, canScroll: false });
+
+  useEffect(() => {
+    const el = chartsContainerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setChartsInView(true);
+      },
+      { threshold: 0.25, rootMargin: "0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const updateScrollState = useCallback(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    const canScroll = scrollWidth > clientWidth;
+    if (!canScroll) {
+      setScrollState({ leftRatio: 0, thumbRatio: 1, canScroll: false });
+      return;
+    }
+    const thumbRatio = clientWidth / scrollWidth;
+    const maxLeft = scrollWidth - clientWidth;
+    const leftRatio = maxLeft > 0 ? scrollLeft / maxLeft : 0;
+    setScrollState({ leftRatio, thumbRatio, canScroll: true });
+  }, []);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener("scroll", updateScrollState);
+    const ro = new ResizeObserver(updateScrollState);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      ro.disconnect();
+    };
+  }, [updateScrollState]);
+
+  useEffect(() => {
+    if (!chartsInView || hasChartAnimated.current) return;
+    let raf1 = 0;
+    let raf2 = 0;
+    raf1 = requestAnimationFrame(() => {
+      const paths = chartLineRefs.current.filter(Boolean) as SVGPathElement[];
+      if (paths.length === 0) return;
+      const lengths = paths.map((p) => p.getTotalLength());
+      paths.forEach((p, i) => {
+        p.style.strokeDasharray = `${lengths[i]}`;
+        p.style.strokeDashoffset = `${lengths[i]}`;
+      });
+      raf2 = requestAnimationFrame(() => {
+        paths.forEach((p) => {
+          p.style.strokeDashoffset = "0";
+        });
+        hasChartAnimated.current = true;
+        setChartLinesRevealed(true);
+      });
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
+  }, [chartsInView]);
+
   // Hodnota účtu (výnosy) – čiara mierne nad vkladmi, s vykyvmi
   const chartPaths = [
     "M 0 48 L 25 44 L 50 42 L 58 46 L 75 36 L 90 34 L 105 32 L 118 30 L 135 28 L 145 26 L 160 28 L 175 24 L 200 22",
@@ -559,7 +636,7 @@ function ClientResultsSection() {
     "M 0 58 L 60 52 L 120 46 L 200 42 L 200 80 L 0 80 Z",
   ];
   return (
-    <section id="vysledky-klientov" className="section-padding bg-muted/30">
+    <section id="vysledky-klientov" className="section-padding">
       <div ref={ref} className="content-width">
         <h2 className="text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-4 text-center">
           <em className="text-primary">Výsledky</em> našich klientov
@@ -567,15 +644,21 @@ function ClientResultsSection() {
         <p className="text-lg text-muted-foreground text-center max-w-[640px] mx-auto mb-12">
           Reálne príbehy a čísla z praxe.
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          ref={(el) => {
+            carouselRef.current = el;
+            chartsContainerRef.current = el;
+          }}
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 sm:gap-6 snap-x snap-mandatory sm:snap-none pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide"
+        >
           {CLIENT_RESULTS.map((c, i) => (
             <div
               key={c.name}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm flex flex-col"
+              className="bg-card rounded-2xl p-4 md:p-5 border border-border shadow-sm flex flex-col shrink-0 w-[280px] sm:w-auto sm:shrink min-w-0 snap-center"
             >
               <div className="flex items-start gap-3 mb-4">
                 <div className="w-9 h-9 icon-pattern-bg-primary flex items-center justify-center flex-shrink-0">
-                  <Check className="w-4 h-4 text-primary-foreground -translate-x-0.5" aria-hidden />
+                  <BarChart3 className="w-4 h-4 text-primary-foreground -translate-x-0.5" aria-hidden />
                 </div>
                 <div>
                   <p className="font-serif font-semibold text-foreground text-lg">{c.name}</p>
@@ -595,11 +678,41 @@ function ClientResultsSection() {
                     </linearGradient>
                   </defs>
                   <path d={areaPaths[i]} fill={`url(#area-${i})`} />
-                  <path d={chartPaths[i]} fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    ref={(el) => { chartLineRefs.current[i] = el; }}
+                    className="chart-line-draw"
+                    d={chartPaths[i]}
+                    fill="none"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={
+                      chartLinesRevealed
+                        ? { transition: "stroke-dashoffset 2.5s ease-in-out" }
+                        : {
+                            strokeDasharray: 9999,
+                            strokeDashoffset: 9999,
+                            transition: "stroke-dashoffset 2.5s ease-in-out",
+                          }
+                    }
+                  />
                 </svg>
               </div>
             </div>
           ))}
+        </div>
+        {/* Mobile: scroll indikátor pod carouselom */}
+        <div className="sm:hidden mt-4 px-4">
+          <div className="h-1.5 w-full max-w-[200px] mx-auto rounded-full bg-muted-foreground/20 overflow-hidden">
+            <div
+              className="h-full rounded-full bg-primary transition-all duration-150 ease-out"
+              style={{
+                width: scrollState.canScroll ? `${Math.max(20, scrollState.thumbRatio * 100)}%` : "100%",
+                marginLeft: scrollState.canScroll ? `${scrollState.leftRatio * (100 - Math.max(20, scrollState.thumbRatio * 100))}%` : "0%",
+              }}
+            />
+          </div>
         </div>
         <div className="flex justify-center mt-12">
           <a
@@ -623,21 +736,25 @@ function StatsSection() {
     { value: "NBS", label: "Licencovaný subjekt", icon: ShieldCheck },
   ];
   return (
-    <section className="py-10 md:py-14 px-6 bg-primary">
+    <section className="py-8 md:py-14 px-4 sm:px-6 bg-primary">
       <div ref={ref} className="content-width">
-        <div className={`scroll-animate ${isVisible ? "visible" : ""} grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12`}>
-          {stats.map((s) => (
+        <div
+          className={`scroll-animate ${isVisible ? "visible" : ""} flex flex-col md:flex-row md:items-center md:justify-between gap-0 md:gap-8 w-full md:max-w-none`}
+        >
+          {stats.map((s, i) => (
             <div
               key={s.label}
-              className="flex flex-col items-center justify-center py-3"
+              className="flex items-center gap-5 py-5 md:py-0 md:flex-col md:items-center md:justify-center md:text-center border-b border-white/20 md:border-b-0 md:border-r md:border-white/25 last:border-b-0 md:last:border-r-0 md:flex-1 md:px-4"
             >
-              <div className="mb-7 w-14 h-14 icon-pattern-bg-white flex items-center justify-center flex-shrink-0">
+              <div className="w-14 h-14 icon-pattern-bg-white flex items-center justify-center flex-shrink-0 md:flex-none">
                 <s.icon className="w-7 h-7 text-primary -translate-x-0.5" aria-hidden />
               </div>
-              <span className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight text-center">
-                {s.value}
-              </span>
-              <p className="text-base sm:text-lg text-white/95 mt-1 text-center font-sans">{s.label}</p>
+              <div className="min-w-0 flex-1 md:flex-none md:mt-4 md:w-full">
+                <span className="block font-serif font-bold text-white text-2xl md:text-3xl lg:text-4xl leading-tight">
+                  {s.value}
+                </span>
+                <p className="text-white/90 text-base mt-1 font-sans">{s.label}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -648,7 +765,6 @@ function StatsSection() {
 
 function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
-  const photoUrl = "https://www.jsinvestor.sk/wp-content/uploads/2025/12/RENTA-2.png";
   return (
     <section id="o-nas" className="section-padding">
       <div ref={ref} className="content-width">
@@ -679,7 +795,7 @@ function AboutSection() {
           {/* Pravý stĺpec: obrázok + meno */}
           <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} flex flex-col items-center`}>
             <img
-              src={photoUrl}
+              src={ivanJasikPhoto}
               alt="Ivan Jašík - JS Investor"
               className="rounded-2xl shadow-lg w-full max-w-[280px] sm:max-w-[320px] h-auto object-cover mb-6"
             />
@@ -717,7 +833,7 @@ function GroupBenefitSection() {
           {benefits.map((b, i) => (
             <div
               key={b.title}
-              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8`}
+              className={`scroll-animate scroll-animate-delay-${i + 2} ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-4 md:p-6`}
             >
               <div className="w-14 h-14 rounded-xl icon-pattern-bg-primary flex items-center justify-center mb-5 -translate-x-1">
                 <b.icon className="w-7 h-7 text-primary-foreground" />
@@ -757,7 +873,8 @@ function GuaranteeSection() {
           <p className="text-center font-serif text-xl md:text-2xl text-muted-foreground mb-10">
             Koľko reálne platíš za celú dobu investovania?
           </p>
-          <div className="overflow-x-auto lg:overflow-x-visible rounded-2xl border border-border bg-card shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08),0_8px_16px_-8px_rgba(0,0,0,0.04)]">
+          <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08),0_8px_16px_-8px_rgba(0,0,0,0.04)]">
+            <div className="overflow-x-auto lg:overflow-x-visible">
             <table className="w-full min-w-[560px] lg:min-w-0 text-left border-collapse table-fixed">
               <colgroup>
                 <col className="w-[22%] lg:w-[22%]" />
@@ -768,52 +885,53 @@ function GuaranteeSection() {
               </colgroup>
               <thead>
                 <tr className="border-b border-border bg-muted/40">
-                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans text-sm md:text-base font-bold text-muted-foreground uppercase tracking-widest" aria-label="Typ poplatku"> </th>
-                  <th className="py-4 px-5 md:py-5 md:px-6 font-serif font-bold text-primary text-center text-sm md:text-base bg-primary/10 border-l border-border">JS Wealth System™</th>
-                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base whitespace-nowrap">Investičné platformy</th>
-                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Banky</th>
-                  <th className="py-4 px-5 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Poradcovia</th>
+                  <th className="p-4 md:py-5 md:px-6 font-sans text-sm md:text-base font-bold text-muted-foreground uppercase tracking-widest" aria-label="Typ poplatku"> </th>
+                  <th className="p-4 md:py-5 md:px-6 font-serif font-bold text-primary text-center text-sm md:text-base bg-primary/10 border-l border-border">JS Wealth System™</th>
+                  <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base whitespace-nowrap">Investičné platformy</th>
+                  <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Banky</th>
+                  <th className="p-4 md:py-5 md:px-6 font-sans font-semibold text-foreground text-center text-sm md:text-base">Poradcovia</th>
                 </tr>
               </thead>
               <tbody className="font-sans text-sm md:text-base bg-card">
                 <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (ročne)</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (ročne)</td>
+                  <td className="p-4 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">
                     <span className="block">do 50 000 € — 0,00 %</span>
                     <span className="block">od 50 000 € — 0,49 %</span>
                   </td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">2 %</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">2 %</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">1 %</td>
                 </tr>
                 <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (v €)</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">75 000 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">114 000 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">62 000 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground font-bold">Manažérsky poplatok (v €)</td>
+                  <td className="p-4 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">75 000 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">114 000 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">62 000 €</td>
                 </tr>
                 <tr className="border-b border-border/60 hover:bg-muted/20 transition-colors">
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Dane</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">109 000 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground font-bold">Dane</td>
+                  <td className="p-4 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">0 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">109 000 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">0 €</td>
                 </tr>
                 <tr className="hover:bg-muted/20 transition-colors">
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground font-bold">Vstupný poplatok</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">900 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
-                  <td className="py-4 px-5 md:py-5 md:px-6 text-muted-foreground text-center">1 800 € a viac</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground font-bold">Vstupný poplatok</td>
+                  <td className="p-4 md:py-5 md:px-6 bg-primary/5 text-primary font-semibold text-center border-l border-border/60">900 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">0 až 1 800 €</td>
+                  <td className="p-4 md:py-5 md:px-6 text-muted-foreground text-center">1 800 € a viac</td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-8 max-w-[720px] mx-auto">
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} rounded-2xl p-8 md:p-10 border border-border/50 bg-muted/20 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)]`}>
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} rounded-2xl p-4 md:p-8 border border-border/50 bg-muted/20 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)]`}>
             <p className="text-sm font-sans font-semibold tracking-[0.15em] uppercase text-primary mb-4">Ďalšia garancia</p>
             <div className="flex items-center gap-4 mb-5">
               <div className="w-14 h-14 shrink-0 rounded-xl icon-pattern-bg-primary flex items-center justify-center -translate-x-1">
@@ -908,10 +1026,10 @@ function FaqSection() {
                 value={item.id}
                 className="flex flex-col gap-3 border-none"
               >
-                <AccordionTrigger className="rounded-xl border border-border/80 bg-card px-6 md:px-8 py-5 text-left font-serif font-semibold text-foreground text-[1.05rem] md:text-lg hover:no-underline hover:text-primary/90 transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.04)] data-[state=open]:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] data-[state=open]:border-primary/20 [&>svg]:text-muted-foreground [&>svg]:w-5 [&>svg]:h-5 [&[data-state=open]>svg]:text-primary">
+                <AccordionTrigger className="rounded-xl border border-border/80 bg-card p-4 md:px-6 md:py-5 text-left font-serif font-semibold text-foreground text-[1.05rem] md:text-lg hover:no-underline hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.04)] data-[state=open]:bg-primary data-[state=open]:text-primary-foreground data-[state=open]:border-primary data-[state=open]:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] [&>svg]:text-muted-foreground [&>svg]:w-5 [&>svg]:h-5 hover:[&>svg]:text-primary-foreground [&[data-state=open]>svg]:text-primary-foreground">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 md:px-8 py-4 pt-1 text-muted-foreground text-[0.9375rem] md:text-base leading-[1.7] mt-0">
+                <AccordionContent className="p-4 pt-1 md:px-6 md:py-4 text-muted-foreground text-[0.9375rem] md:text-base leading-[1.7] mt-0">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
