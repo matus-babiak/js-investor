@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Ako to riešime", href: "#ako-to-funguje" },
   { label: "Pre koho", href: "#pre-koho" },
   { label: "Recenzie", href: "#recenzie" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const StickyNav = () => {

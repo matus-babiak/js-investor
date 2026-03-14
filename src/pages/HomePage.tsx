@@ -1,5 +1,6 @@
 import StickyNav from "@/components/StickyNav";
 import Footer from "@/components/Footer";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import brandPattern from "@/assets/js-brand-pattern.svg";
 import logo from "@/assets/js-investor-logo.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -88,7 +89,13 @@ const HomePage = () => {
           <img
             src={brandPattern}
             alt=""
-            className="absolute -bottom-6 -right-6 w-[110%] h-auto opacity-[0.08] pointer-events-none select-none -z-10"
+            className="absolute -bottom-6 -right-6 w-[90%] max-w-[500px] h-auto opacity-[0.07] pointer-events-none select-none -z-10"
+            aria-hidden="true"
+          />
+          <img
+            src={brandPattern}
+            alt=""
+            className="absolute top-1/4 -left-12 w-[220px] h-auto opacity-[0.05] pointer-events-none select-none -z-10"
             aria-hidden="true"
           />
         </section>
@@ -122,6 +129,9 @@ const HomePage = () => {
 
         {/* Naša garancia */}
         <GuaranteeSection />
+
+        {/* FAQ */}
+        <FaqSection />
 
         {/* Finálna CTA */}
         <FinalCtaSection />
@@ -174,8 +184,14 @@ function ChaosSection() {
     },
   ];
   return (
-    <section id="problem" className="section-padding section-alt">
-      <div ref={ref} className="content-width">
+    <section id="problem" className="section-padding section-alt relative overflow-hidden">
+      <img
+        src={brandPattern}
+        alt=""
+        className="absolute top-1/3 right-0 w-[320px] h-auto opacity-[0.04] pointer-events-none select-none -z-10"
+        aria-hidden="true"
+      />
+      <div ref={ref} className="content-width relative z-10">
         <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[48px] font-serif font-bold text-foreground mb-10 text-center`}>
           <em className="text-primary">Nie ste v tom sami.</em> Väčšina našich klientov prišla s podobným príbehom.
         </h2>
@@ -466,7 +482,13 @@ function TestimonialsSection() {
       <img
         src={brandPattern}
         alt=""
-        className="absolute -left-24 top-1/2 -translate-y-1/2 w-[350px] h-auto opacity-[0.04] pointer-events-none select-none"
+        className="absolute -left-24 top-1/2 -translate-y-1/2 w-[280px] h-auto opacity-[0.045] pointer-events-none select-none -z-10"
+        aria-hidden="true"
+      />
+      <img
+        src={brandPattern}
+        alt=""
+        className="absolute -right-16 bottom-1/4 w-[380px] h-auto opacity-[0.035] pointer-events-none select-none -z-10"
         aria-hidden="true"
       />
       <div ref={ref} className="content-width text-center relative z-10">
@@ -691,15 +713,7 @@ function GroupBenefitSection() {
         <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-lg md:text-xl text-muted-foreground text-center max-w-[720px] mx-auto mb-10`}>
           Každý klient s JS Wealth System™ automaticky získava prístup do našej <strong className="text-foreground">súkromnej komunity</strong>. Je to priestor, kde pravidelne zdieľame hĺbkové analýzy trhov, PDF reporty a investičné príležitosti, ktoré <strong className="text-foreground">bežný klient banky nikdy neuvidí</strong>.
         </p>
-        <div className="flex justify-center mb-10">
-          <a
-            href="/dotaznik"
-            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
-          >
-            Navrhnúť JS Wealth System™
-          </a>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-10">
           {benefits.map((b, i) => (
             <div
               key={b.title}
@@ -712,6 +726,14 @@ function GroupBenefitSection() {
               <p className="text-lg text-muted-foreground">{b.text}</p>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center">
+          <a
+            href="/dotaznik"
+            className="btn-primary inline-block bg-primary text-primary-foreground font-sans font-semibold text-base px-8 py-3.5 rounded-full shadow-lg"
+          >
+            Navrhnúť JS Wealth System™
+          </a>
         </div>
       </div>
     </section>
@@ -791,16 +813,110 @@ function GuaranteeSection() {
         </div>
 
         <div className="flex flex-col gap-8 max-w-[720px] mx-auto">
-          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} card-hover bg-card rounded-2xl p-8 border border-primary/20`}>
-            <div className="w-14 h-14 icon-pattern-bg-primary-light flex items-center justify-center mb-5 -translate-x-2">
-              <Phone className="w-7 h-7 text-primary" />
+          <div className={`scroll-animate scroll-animate-delay-3 ${isVisible ? "visible" : ""} rounded-2xl p-8 md:p-10 border border-border/50 bg-muted/20 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)]`}>
+            <p className="text-sm font-sans font-semibold tracking-[0.15em] uppercase text-primary mb-4">Ďalšia garancia</p>
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-14 h-14 shrink-0 rounded-xl icon-pattern-bg-primary flex items-center justify-center -translate-x-1">
+                <Phone className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="font-serif text-2xl font-semibold text-foreground">Priamy prístup k expertovi pri každom dôležitom rozhodnutí</h3>
             </div>
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">Priamy prístup k expertovi pri každom dôležitom rozhodnutí</h3>
-            <div className="text-lg text-muted-foreground space-y-4">
+            <div className="text-lg text-muted-foreground space-y-4 leading-relaxed">
               <p>Zavoláte svojmu sprievodcovi budovaním majetku, kedykoľvek to potrebujete. Pri kúpe bytu, mimoriadnom bonuse alebo na zachovanie chladnej hlavy počas trhovej krízy.</p>
               <p>Garantujem vám, že na dôležité finančné rozhodnutia <strong className="text-foreground">už nikdy nebudete sami</strong>. Moja štandardná konzultácia stojí 250 €/hod., no vy ako klient JS Wealth System™ máte moju podporu <strong className="text-foreground">kedykoľvek k dispozícii</strong>.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const FAQ_ITEMS = [
+  {
+    id: "faq-1",
+    question: "Investujem sám cez investičné aplikácie. Čo mi JS Wealth System™ prinesie navyše?",
+    answer: (
+      <>
+        Aplikácia je len nástroj, nie stratégia. Zatiaľ čo aplikácie slúžia na mechanický nákup, my vám dodáme ucelenú <strong className="text-foreground">Majetkovú mapu</strong>. Náš systém prepája ETF fondy, matematické modely pre investičné nehnuteľnosti, daňovú optimalizáciu a plánovanie doživotnej renty do jedného funkčného celku. Nekupujete si len investičný účet, ale <strong className="text-foreground">ušetrený čas, pocit bezpečia a dlhodobého partnera</strong>, s ktorým môžete kedykoľvek konzultovať dôležité finančné kroky (čo je inak služba v hodnote 250 €/hod).
+      </>
+    ),
+  },
+  {
+    id: "faq-2",
+    question: "Prečo by som mal zveriť majetok vám a nie banke alebo privátnemu bankárovi?",
+    answer: (
+      <>
+        Banky primárne predávajú vlastné produkty s vysokými vstupnými a priebežnými poplatkami (často až 2 % ročne), pričom pri výbere ziskov môžete stratiť ďalšie tisíce na daniach. My fungujeme v režime otvorenej architektúry – vyberáme to <strong className="text-foreground">najlepšie z globálneho trhu, maximálne daňovo optimalizovane</strong>. Na rozdiel od bánk u nás <strong className="text-foreground">neplatíte žiadny poplatok za správu do výšky majetku 50 000 €</strong>.
+      </>
+    ),
+  },
+  {
+    id: "faq-3",
+    question: "Sú v systéme nejaké skryté poplatky, o ktorých by som mal vedieť?",
+    answer: (
+      <>
+        Nie, naša poplatková štruktúra je od prvého dňa <strong className="text-foreground">absolútne transparentná a postavená férovo</strong>. Našou filozofiou je zarábať až vtedy, keď reálne rastie váš kapitál. Preto do 50 000 € neplatíte za správu vôbec nič (0 %). Až pri sumách nad túto hranicu je poplatok <strong className="text-foreground">maximálne 0,49 %</strong>. Všetky podmienky sú jasne a vopred dohodnuté.
+      </>
+    ),
+  },
+  {
+    id: "faq-4",
+    question: "Stratím kontrolu nad svojimi peniazmi, keď ich budem spravovať cez váš systém?",
+    answer: (
+      <>
+        Práve naopak, získate <strong className="text-foreground">dokonalý prehľad bez papierovačiek</strong>. Všetky vaše investície, zmluvy a exaktný vývoj čistého majetku vidíte v reálnom čase <strong className="text-foreground">vďaka aplikácii UFO</strong>. Na jeden klik viete zistiť, o koľko klesla vaša hypotéka, narástli fondy a o koľko eur ste celkovo bohatší. Vaše peniaze zostávajú plne flexibilné, takže vieme stratégiu kedykoľvek prispôsobiť zmenám vo vašom živote.
+      </>
+    ),
+  },
+  {
+    id: "faq-5",
+    question: "Čo sa stane s mojím majetkom v prípade, že sa mi niečo stane?",
+    answer: (
+      <>
+        Toto je jedna z najčastejších otázok klientov, ktorí si už vybudovali väčší kapitál a záleží im na zabezpečení rodiny. V rámci JS Wealth System™ neriešime len zhodnocovanie aktív, ale aj komplexné <strong className="text-foreground">„dedičstvo v investovaní“</strong>. Poskytneme vám jasný systém a presný postup, ako nastaviť bezpečný prechod majetku na vašich blízkych. Zabezpečíme pre vás všetko od základného právneho procesu až po pokročilé nástroje, akými sú <strong className="text-foreground">zverenecké fondy</strong>, ktoré bežne využívajú tí najbohatší. Získate tak absolútny pokoj na duši s vedomím, že o váš majetok a rodinu je odborne postarané v akejkoľvek životnej situácii.
+      </>
+    ),
+  },
+];
+
+function FaqSection() {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <section id="faq" className="section-padding section-alt relative overflow-hidden">
+      <img
+        src={brandPattern}
+        alt=""
+        className="absolute bottom-8 left-0 w-[260px] h-auto opacity-[0.04] pointer-events-none select-none -z-10"
+        aria-hidden="true"
+      />
+      <div ref={ref} className="content-width relative z-10">
+        <p className={`scroll-animate ${isVisible ? "visible" : ""} text-sm font-sans font-semibold tracking-[0.2em] uppercase text-primary mb-3 text-center`}>
+          FAQ
+        </p>
+        <h2 className={`scroll-animate ${isVisible ? "visible" : ""} text-3xl md:text-4xl lg:text-[44px] font-serif font-bold text-foreground mb-3 text-center`}>
+          Najčastejšie otázky
+        </h2>
+        <p className={`scroll-animate scroll-animate-delay-1 ${isVisible ? "visible" : ""} text-lg text-muted-foreground text-center max-w-[520px] mx-auto mb-14`}>
+          Odpovede na to, čo nás klienti pýtajú najčastejšie.
+        </p>
+        <div className={`scroll-animate scroll-animate-delay-2 ${isVisible ? "visible" : ""} max-w-[780px] mx-auto space-y-3`}>
+          <Accordion type="single" collapsible className="space-y-3">
+            {FAQ_ITEMS.map((item) => (
+              <AccordionItem
+                key={item.id}
+                value={item.id}
+                className="flex flex-col gap-3 border-none"
+              >
+                <AccordionTrigger className="rounded-xl border border-border/80 bg-card px-6 md:px-8 py-5 text-left font-serif font-semibold text-foreground text-[1.05rem] md:text-lg hover:no-underline hover:text-primary/90 transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.04)] data-[state=open]:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] data-[state=open]:border-primary/20 [&>svg]:text-muted-foreground [&>svg]:w-5 [&>svg]:h-5 [&[data-state=open]>svg]:text-primary">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-6 md:px-8 py-4 pt-1 text-muted-foreground text-[0.9375rem] md:text-base leading-[1.7] mt-0">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
