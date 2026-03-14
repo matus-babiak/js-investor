@@ -237,41 +237,25 @@ function WealthMapSection() {
       num: "1",
       icon: TrendingUp,
       title: "Inteligentné ETF stratégie",
-      paragraphs: [
-        <>Vaše peniaze <strong className="text-primary-foreground">neefektívne ležia v banke</strong> alebo v zbytočne <strong className="text-primary-foreground">drahých podielových fondoch.</strong></>,
-        <>Inflácia ich potichu požiera a vy <strong className="text-primary-foreground">prichádzate o obrovské výnosy</strong> kvôli vysokým poplatkom a emočným chybám na trhu.</>,
-        <>My vám vybudujeme stabilné globálne portfólio z nízkonákladových fondov. Nastavíme ho <strong className="text-primary-foreground">presne podľa vášho rizika</strong> a cieľa pre <strong className="text-primary-foreground">predvídateľný rast bez zbytočných poplatkov.</strong></>,
-      ],
+      content: <>Nebudeme spoločne špekulovať ani hľadať skratky. Zoberieme si váš kapitál na starosť a postavíme vám <strong className="text-primary-foreground">stabilné portfólio z nízkonákladových ETF fondov</strong>. Získate tak <strong className="text-primary-foreground">predvídateľný rast majetku</strong> – bez stresu, bez emócií a bez zbytočných bankových poplatkov.</>,
     },
     {
       num: "2",
       icon: Building2,
-      title: "Investičné nehnuteľnosti a financovanie",
-      paragraphs: [
-        <>Investičné nehnuteľnosti nakupujete len na základe <strong className="text-primary-foreground">intuície, emócií</strong> alebo zdanlivo <strong className="text-primary-foreground">„výhodnej ponuky“</strong> na trhu.</>,
-        <>Nákup „na základe pocitov“ vás môže dostať do <strong className="text-primary-foreground">nevýhodnej hypotéky</strong> a roky vás <strong className="text-primary-foreground">finančne vyčerpávať</strong> negatívnym cashflowom.</>,
-        <>Na stôl vám položíme presnú ROI kalkulačku s optimistickým aj stresovým scenárom. <strong className="text-primary-foreground">Či sa byt oplatí kúpiť, rozhodneme spoločne.</strong> Čisto na základe exaktných čísiel.</>,
-      ],
+      title: "Investičné nehnuteľnosti",
+      content: <>Nenecháme vás kupovať byt len na základe intuície alebo pocitov. Keď na to príde čas, spoločne sa pozrieme na <strong className="text-primary-foreground">exaktné čísla</strong>. Pripravíme vám <strong className="text-primary-foreground">presné ROI kalkulačky a stresové scenáre</strong>, aby vaša kúpa dávala od prvého dňa prísny matematický zmysel.</>,
     },
     {
       num: "3",
       icon: Calculator,
       title: "Daňová optimalizácia",
-      paragraphs: [
-        <>Sústredíte sa len na to, koľko vaše <strong className="text-primary-foreground">investície zarobia v hrubom.</strong></>,
-        <>Ignorovanie daní vedie k tomu, že pri výbere ziskov <strong className="text-primary-foreground">necháte štátu tisíce eur z vášho ťažko vybudovaného majetku</strong> úplne zbytočne.</>,
-        <>Vaše portfólio od prvého dňa štruktúrujeme maximálne daňovo efektívne tak, aby ste <strong className="text-primary-foreground">legálne a transparentne ochránili svoj čistý výnos.</strong></>,
-      ],
+      content: <>Hrubý výnos na papieri je len polovičný úspech – dôležité je to, <strong className="text-primary-foreground">čo vám reálne ostane na účte</strong>. Vaše portfólio preto od začiatku nastavíme tak, aby ste svoj ťažko vybudovaný <strong className="text-primary-foreground">čistý výnos legálne ochránili</strong> a štátu nenechali ani o euro navyše.</>,
     },
     {
       num: "4",
       icon: WalletIcon,
       title: "Renta a skutočná sloboda",
-      paragraphs: [
-        <>Budujete si majetok, ale <strong className="text-primary-foreground">chýba vám presný systém,</strong> ako a kedy si ho reálne začnete užívať.</>,
-        <>Bez bezpečnej „výstupnej stratégie" riskujete, že trhové výkyvy v nesprávny čas <strong className="text-primary-foreground">ohrozia vašu celoživotnú snahu o finančnú nezávislosť.</strong></>,
-        <>V správny čas prestavíme vaše aktíva do rentového módu, aby vám <strong className="text-primary-foreground">generovali stabilný pasívny príjem.</strong> V dobrých aj zlých rokoch.</>,
-      ],
+      content: <>Neinvestujete predsa len preto, aby ste videli pekné čísla v aplikácii. Naším konečným cieľom je <strong className="text-primary-foreground">vaša nezávislosť</strong>. V správny čas vaše aktíva prestavíme tak, aby vám bezpečne generovali <strong className="text-primary-foreground">stabilný doživotný pasívny príjem</strong> a kúpili vám vašu časovú slobodu.</>,
     },
   ];
   return (
@@ -298,11 +282,7 @@ function WealthMapSection() {
                 <p.icon className="w-7 h-7 text-primary -translate-x-0.5" aria-hidden />
               </div>
               <h3 className="font-serif text-2xl font-semibold text-primary-foreground mb-3">{p.title}</h3>
-              <div className="space-y-3 text-lg text-primary-foreground/90">
-                {p.paragraphs.map((para, j) => (
-                  <p key={j}>{para}</p>
-                ))}
-              </div>
+              <p className="text-lg text-primary-foreground/90">{p.content}</p>
             </div>
           ))}
         </div>
